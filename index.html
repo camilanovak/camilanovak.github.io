@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camila Novak - Cartão de Visita Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2e8e1;
+            color: #7a695d;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(122, 105, 93, 0.2);
+            overflow: hidden;
+            padding-bottom: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #7a695d 0%, #ae9c8f 100%);
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -50px;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #ffffff;
+            object-fit: cover;
+            background-color: #e5d2c4;
+        }
+        
+        .name {
+            margin-top: 15px;
+            font-size: 28px;
+            font-weight: 600;
+            color: #7a695d;
+        }
+        
+        .title {
+            font-size: 18px;
+            color: #ae9c8f;
+            margin-bottom: 25px;
+            text-align: center;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #7a695d;
+            border-bottom: 1px solid #e5d2c4;
+            padding-bottom: 5px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ae9c8f;
+        }
+        
+        .contact-link {
+            color: #7a695d;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: #ae9c8f;
+            text-decoration: underline;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #ae9c8f;
+            padding: 10px;
+            background-color: #f2e8e1;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .name {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header"></div>
+        
+        <div class="profile">
+            <img src="/api/placeholder/150/150" alt="Foto de Camila Novak" class="profile-img">
+            <h1 class="name">Camila Novak</h1>
+            <p class="title">Engenheira Eletricista | Analista de Planejamento Energético</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Sobre mim</h2>
+                <p>Engenheira Eletricista formada pelo Instituto Federal de Santa Catarina, com especializações em Gestão de Projetos pela Universidade Estácio de Sá e em Setor Elétrico e Mercados de Energia pela Universidade Católica de Petrópolis.</p>
+                <p>Atuei anteriormente com projetos e instalações elétricas, manutenção e gestão de facilities, o que me proporcionou uma base sólida em processos técnicos e operacionais do setor elétrico.</p>
+                <p>Nos últimos anos, tenho me dedicado às áreas de formação de preços de energia elétrica, comercialização e planejamento energético, com foco em análises que apoiam a tomada de decisão estratégica no mercado de energia.</p>
+                <p>Minha trajetória é marcada por uma visão integrada do setor elétrico, unindo conhecimento técnico, regulatório e comercial para atuar de forma eficaz em um mercado em constante transformação.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Contato</h2>
+                
+                <div class="contact-item">
+                    <div class="icon">📧</div>
+                    <a href="mailto:camila.novak@outlook.com" class="contact-link">camila.novak@outlook.com</a>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="icon">📱</div>
+                    <a href="tel:+5548984172106" class="contact-link">(48) 98417-2106</a>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="icon">💼</div>
+                    <a href="https://linkedin.com/in/camila-novak/" target="_blank" class="contact-link">linkedin.com/in/camila-novak/</a>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="icon">🎓</div>
+                    <a href="http://lattes.cnpq.br/1461786919599821" target="_blank" class="contact-link">Currículo Lattes</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Atualizado em maio de 2025
+        </div>
+    </div>
+</body>
+</html>
