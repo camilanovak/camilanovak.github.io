@@ -37,15 +37,25 @@
             overflow: hidden;
         }
         
-        .header:before {
-            content: "";
+        .profile-background {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200' opacity='0.1'%3E%3Cg fill='%23e5d2c4'%3E%3Cpath d='M50 20 L20 50 L10 80 L50 60 Z'/%3E%3Cpath d='M150 20 L180 50 L190 80 L150 60 Z'/%3E%3Cpath d='M100 10 L90 40 L110 40 Z'/%3E%3Cpath d='M30 120 L10 140 L20 160 L40 150 Z'/%3E%3Cpath d='M170 120 L190 140 L180 160 L160 150 Z'/%3E%3Cpath d='M100 180 L90 150 L110 150 Z'/%3E%3Cpath d='M60 100 L30 90 L30 110 Z'/%3E%3Cpath d='M140 100 L170 90 L170 110 Z'/%3E%3Ccircle cx='100' cy='100' r='10'/%3E%3Cpath d='M60 30 L65 50 L55 50 Z'/%3E%3Cpath d='M140 30 L135 50 L145 50 Z'/%3E%3Cpath d='M60 170 L65 150 L55 150 Z'/%3E%3Cpath d='M140 170 L135 150 L145 150 Z'/%3E%3Cpath d='M30 75 L50 80 L50 70 Z'/%3E%3Cpath d='M170 75 L150 80 L150 70 Z'/%3E%3Cpath d='M75 30 L80 50 L70 50 Z'/%3E%3Cpath d='M125 30 L120 50 L130 50 Z'/%3E%3Cpath d='M75 170 L80 150 L70 150 Z'/%3E%3Cpath d='M125 170 L120 150 L130 150 Z'/%3E%3Cpath d='M30 125 L50 120 L50 130 Z'/%3E%3Cpath d='M170 125 L150 120 L150 130 Z'/%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.15;
+            background-color: transparent;
+            z-index: 1;
+        }
+        
+        .profile-background:before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            bottom: -70px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='350' viewBox='0 0 600 350' opacity='0.7'%3E%3Cg fill='%23e5d2c4'%3E%3C!-- Torres de transmissão à esquerda --%3E%3Cpath d='M20 350 L20 310 L10 300 L30 300 L20 310 M20 300 L20 280 L10 270 L30 270 L20 280 M20 270 L20 250 L10 240 L30 240 L20 250 M20 240 L20 210'/%3E%3C!-- Torres de transmissão à direita --%3E%3Cpath d='M580 350 L580 310 L570 300 L590 300 L580 310 M580 300 L580 280 L570 270 L590 270 L580 280 M580 270 L580 250 L570 240 L590 240 L580 250 M580 240 L580 210'/%3E%3C!-- Linhas de transmissão --%3E%3Cpath d='M20 220 L580 220 M20 230 L580 230'/%3E%3C!-- Raios e símbolos de energia à esquerda --%3E%3Cpath d='M70 140 L75 155 L65 160 L75 175 L60 170'/%3E%3C!-- Raios e símbolos de energia à direita --%3E%3Cpath d='M530 140 L525 155 L535 160 L525 175 L540 170'/%3E%3C!-- Gráficos (planejamento energético) abaixo --%3E%3Cpath d='M150 320 L175 300 L200 310 L225 290 L250 305 L275 285 L300 300 L325 280 L350 290 L375 270 L400 280 L425 260 L450 270'/%3E%3C!-- Símbolos de circuitos nas laterais --%3E%3Ccircle cx='70' cy='200' r='7'/%3E%3Ccircle cx='530' cy='200' r='7'/%3E%3Cpath d='M65 200 L50 200'/%3E%3Cpath d='M75 200 L90 200'/%3E%3Cpath d='M525 200 L510 200'/%3E%3Cpath d='M535 200 L550 200'/%3E%3C!-- Capacitores --%3E%3Cpath d='M145 200 L155 200 M145 195 L145 205 M155 195 L155 205'/%3E%3Cpath d='M445 200 L455 200 M445 195 L445 205 M455 195 L455 205'/%3E%3C!-- Ícone medidor ao redor da foto --%3E%3Cpath d='M250 190 C 250 180, 290 150, 300 140 C 310 150, 350 180, 350 190' stroke='%23e5d2c4' stroke-width='2' fill='none'/%3E%3Cpath d='M230 220 C 230 210, 290 120, 300 110 C 310 120, 370 210, 370 220' stroke='%23e5d2c4' stroke-width='2' fill='none'/%3E%3C!-- Relâmpagos (eletricidade) --%3E%3Cpath d='M130 150 L125 165 L135 165 L125 180'/%3E%3Cpath d='M470 150 L475 165 L465 165 L475 180'/%3E%3C!-- Símbolos de preços/comércio --%3E%3Cpath d='M115 280 L115 260 L105 260 L125 260 M115 260 L115 240'/%3E%3Cpath d='M485 280 L485 260 L475 260 L495 260 M485 260 L485 240'/%3E%3C!-- Símbolos de planejamento --%3E%3Cpath d='M180 140 L200 140 L200 160 L180 160 Z'/%3E%3Cpath d='M400 140 L420 140 L420 160 L400 160 Z'/%3E%3Cpath d='M185 140 L185 135 L195 135 L195 140 M185 160 L185 165 L195 165 L195 160'/%3E%3Cpath d='M405 140 L405 135 L415 135 L415 140 M405 160 L405 165 L415 165 L415 160'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.35;
         }
         
         .profile {
