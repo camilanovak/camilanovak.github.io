@@ -78,12 +78,26 @@
       gap: 28px;
     }
 
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .brand {
       text-decoration: none;
       color: var(--navy);
       font-weight: 700;
       letter-spacing: 0.04em;
       font-size: 15px;
+    }
+
+    .brand-role {
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -147,6 +161,7 @@
       color: var(--muted);
       font-size: 17px;
       line-height: 1.72;
+      text-align: justify;
     }
 
     .hero-actions {
@@ -248,6 +263,7 @@
       color: var(--muted);
       font-size: 17px;
       max-width: 820px;
+      text-align: justify;
     }
 
     .divider {
@@ -268,6 +284,7 @@
       line-height: 1.75;
       color: var(--ink);
       max-width: 820px;
+      text-align: justify;
     }
 
     .about-text p {
@@ -294,6 +311,7 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.7;
+      text-align: justify;
     }
 
     /* ===== PILARES ===== */
@@ -329,6 +347,7 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.7;
+      text-align: justify;
     }
 
     /* ===== TIMELINE ===== */
@@ -374,12 +393,14 @@
       margin: 16px 0 0;
       color: var(--muted);
       max-width: 860px;
+      text-align: justify;
     }
 
     .time-content ul {
       margin: 16px 0 0;
       padding-left: 20px;
       color: var(--muted);
+      text-align: justify;
     }
 
     .time-content li + li {
@@ -439,6 +460,7 @@
       margin: 16px 0 0;
       color: var(--muted);
       line-height: 1.72;
+      text-align: justify;
     }
 
     .teaching-list {
@@ -592,6 +614,7 @@
       margin: 18px 0 0;
       color: rgba(255,255,255,.72);
       max-width: 680px;
+      text-align: justify;
     }
 
     .contact-links {
@@ -629,6 +652,12 @@
     @media (max-width: 900px) {
       .nav-links {
         display: none;
+      }
+
+      .brand-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
       }
 
       .hero {
@@ -706,7 +735,7 @@
 
   <header class="site-header">
     <nav class="wrap nav">
-      <a class="brand" href="#top">CAMILA NOVAK</a>
+      <div class="brand-wrap"><a class="brand" href="#top">CAMILA NOVAK</a><span class="brand-role">Engenheira Eletricista</span></div>
 
       <div class="nav-links">
         <a href="#sobre">Sobre</a>
@@ -727,7 +756,7 @@
         <div>
           <p class="kicker">Engineering / Energy / Data</p>
 
-          <h1>Camila<br>Novak.</h1>
+          <h1>Camila<br>Novak</h1>
 
           <p class="hero-role">
             Engenheira Eletricista · Planejamento Energético · Formação de Preços · Mercado de Energia
@@ -746,7 +775,7 @@
         </div>
 
         <figure class="hero-photo" aria-label="Camila Novak em visita técnica a uma usina hidrelétrica">
-          <img src="camila-novak.jpg" alt="Camila Novak em visita técnica a uma usina hidrelétrica">
+          <img src="Image.png" alt="Camila Novak em visita técnica a uma usina hidrelétrica">
         </figure>
       </section>
     </div>
@@ -757,7 +786,7 @@
         <div class="section-head">
           <div class="section-label">01 — Sobre</div>
           <div>
-            <h2 class="section-title">Engenharia para entender sistemas. Dados para apoiar decisões.</h2>
+            <h2 class="section-title">Engenharia para entender sistemas. Dados para apoiar decisões</h2>
           </div>
         </div>
 
@@ -797,7 +826,7 @@
         <div class="section-head">
           <div class="section-label">02 — Atuação</div>
           <div>
-            <h2 class="section-title">Quatro pilares que concentram meu trabalho hoje.</h2>
+            <h2 class="section-title">Quatro pilares que concentram meu trabalho hoje</h2>
           </div>
         </div>
 
@@ -847,7 +876,7 @@
         <div class="section-head">
           <div class="section-label">03 — Trajetória</div>
           <div>
-            <h2 class="section-title">Uma carreira construída entre engenharia, tecnologia, mercado e operação.</h2>
+            <h2 class="section-title">Uma carreira construída entre engenharia, tecnologia, mercado e operação</h2>
             <p class="section-copy">
               A linha abaixo privilegia as experiências que melhor explicam minha atuação atual,
               mantendo a base técnica que sustentou essa evolução.
@@ -864,7 +893,7 @@
             </div>
 
             <div class="time-content">
-              <h3>Senior Energy Planning Analyst</h3>
+              <h3>Analista de Planejamento Energético Sênior</h3>
               <div class="company">Planejamento Energético</div>
 
               <p>
@@ -1008,7 +1037,7 @@
         <div class="section-head">
           <div class="section-label">04 — Docência</div>
           <div>
-            <h2 class="section-title">Conhecimento técnico também precisa ser comunicável.</h2>
+            <h2 class="section-title">Conhecimento técnico também precisa ser comunicável</h2>
           </div>
         </div>
 
@@ -1042,7 +1071,7 @@
         <div class="section-head">
           <div class="section-label">05 — Toolkit</div>
           <div>
-            <h2 class="section-title">Modelos, dados e conhecimento de domínio.</h2>
+            <h2 class="section-title">Modelos, dados e conhecimento de domínio</h2>
           </div>
         </div>
 
@@ -1087,13 +1116,13 @@
         <div class="section-head">
           <div class="section-label">06 — Formação</div>
           <div>
-            <h2 class="section-title">Formação acadêmica.</h2>
+            <h2 class="section-title">Formação acadêmica</h2>
           </div>
         </div>
 
         <div class="education">
           <article class="edu">
-            <div class="degree">Executive MBA</div>
+            <div class="degree">MBA</div>
             <h3>Setor Elétrico e Mercado de Energia</h3>
             <p>Universidade Católica de Petrópolis — UCP</p>
             <div class="year">2023 — 2025</div>
@@ -1102,7 +1131,7 @@
           <article class="edu">
             <div class="degree">MBA</div>
             <h3>Gestão de Projetos</h3>
-            <p>Estácio</p>
+            <p>Universidade Estácio de Sá</p>
             <div class="year">2020 — 2022</div>
           </article>
 
@@ -1122,7 +1151,7 @@
         <div class="section-head">
           <div class="section-label">07 — Idiomas</div>
           <div>
-            <h2 class="section-title">Idiomas.</h2>
+            <h2 class="section-title">Idiomas</h2>
           </div>
         </div>
 
@@ -1146,7 +1175,7 @@
         </p>
 
         <div class="contact-links">
-          <a href="mailto:camila.novak@outlook.com">E-mail</a>
+          <a href="mailto:camila.novak@outlook.com?subject=Contato%20via%20portf%C3%B3lio">camila.novak@outlook.com</a>
 
           <a href="https://linkedin.com/in/camila-novak/" target="_blank" rel="noopener">LinkedIn ↗</a>
 
