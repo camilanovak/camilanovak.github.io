@@ -1404,6 +1404,7 @@
 
       .mobile-section-nav {
         display: flex;
+        scroll-behavior: smooth;
         align-items: center;
         gap: 6px;
         overflow-x: auto;
@@ -1456,7 +1457,7 @@
 </head>
 
 <body>
-  <!-- Portfolio Camila Novak | versão 16 | navegação persistente + topo | 02/10/2026 -->
+  <!-- Portfolio Camila Novak | versão 17 | correção de loop de rolagem | 02/10/2026 -->
 
   <header class="site-header">
     <nav class="wrap nav">
@@ -2334,15 +2335,25 @@
           mobileSectionLinks.forEach(link => {
             const isActive = link.getAttribute("href") === activeId;
             link.classList.toggle("active", isActive);
-
-            if (isActive) {
-              link.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-                inline: "center"
-              });
-            }
           });
+
+          const activeLink = mobileSectionLinks.find(
+            link => link.getAttribute("href") === activeId
+          );
+
+          const nav = document.querySelector(".mobile-section-nav");
+
+          if (activeLink && nav) {
+            const targetLeft =
+              activeLink.offsetLeft -
+              (nav.clientWidth / 2) +
+              (activeLink.offsetWidth / 2);
+
+            nav.scrollTo({
+              left: Math.max(0, targetLeft),
+              behavior: "smooth"
+            });
+          }
         },
         {
           rootMargin: "-32% 0px -58% 0px",
