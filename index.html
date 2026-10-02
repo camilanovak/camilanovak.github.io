@@ -350,7 +350,7 @@
 
     .pillar {
       display: grid;
-      grid-template-columns: 120px 280px minmax(0, 1fr);
+      grid-template-columns: 150px 280px minmax(0, 1fr);
       gap: 26px;
       align-items: start;
       border: 1px solid var(--card-border);
@@ -373,6 +373,7 @@
       font-size: 11px;
       letter-spacing: .08em;
       padding-top: 5px;
+      white-space: nowrap;
     }
 
     .pillar h3 {
@@ -566,7 +567,7 @@
       display: grid;
       grid-template-columns: 220px minmax(0, 1fr);
       gap: 30px;
-      padding-bottom: 26px;
+      padding-bottom: 22px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -584,17 +585,25 @@
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      align-items: center;
+      gap: 8px;
     }
 
     .tag {
-      padding: 9px 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 13px;
       border-radius: 999px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(25, 59, 85, .24);
+      box-shadow: none;
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
+      line-height: 1;
       color: var(--ink);
+      white-space: nowrap;
     }
 
     /* ===== FORMAÇÃO ===== */
@@ -788,6 +797,10 @@
         gap: 10px;
       }
 
+      .pillar small {
+        white-space: normal;
+      }
+
       .compact-experience {
         grid-template-columns: 1fr;
       }
@@ -832,7 +845,7 @@
 </head>
 
 <body>
-  <!-- Portfolio Camila Novak | versão 10 | navegação e acessibilidade | 02/10/2026 -->
+  <!-- Portfolio Camila Novak | versão 11 | correções visuais | 02/10/2026 -->
 
   <header class="site-header">
     <nav class="wrap nav">
