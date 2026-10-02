@@ -154,8 +154,8 @@
     }
 
     .language-switcher button {
-      min-width: 38px;
-      height: 30px;
+      min-width: 54px;
+      height: 32px;
       padding: 0 10px;
       border: 0;
       border-radius: 999px;
@@ -166,6 +166,10 @@
       font-weight: 600;
       letter-spacing: .05em;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
       transition: background .2s ease, color .2s ease, box-shadow .2s ease;
     }
 
@@ -893,6 +897,28 @@
       }
     }
 
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    .section-head > *,
+    .timeline-item > *,
+    .tool-group > *,
+    .teaching-card > *,
+    .about-grid > * {
+      min-width: 0;
+    }
+
+    .section-title,
+    .time-content h3,
+    .teaching-card h3,
+    .tool-group h3 {
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+
     /* ===== MOBILE-FIRST REFINEMENT ===== */
 
     @media (max-width: 768px) {
@@ -935,17 +961,18 @@
       }
 
       .language-switcher button {
-        min-width: 36px;
-        height: 28px;
+        min-width: 50px;
+        height: 30px;
         padding: 0 8px;
         font-size: 10px;
+        gap: 5px;
       }
 
       .hero {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
         min-height: auto;
-        padding: 54px 0 64px;
+        padding: 46px 0 54px;
       }
 
       .kicker {
@@ -999,13 +1026,13 @@
       }
 
       section {
-        padding: 60px 0;
+        padding: 46px 0;
       }
 
       .section-head {
         grid-template-columns: 1fr;
-        gap: 12px;
-        margin-bottom: 30px;
+        gap: 10px;
+        margin-bottom: 24px;
       }
 
       .section-label {
@@ -1015,10 +1042,12 @@
       }
 
       .section-title {
-        max-width: none;
-        font-size: clamp(30px, 9.5vw, 42px);
-        line-height: 1.12;
-        letter-spacing: -.03em;
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(28px, 8.2vw, 38px);
+        line-height: 1.13;
+        letter-spacing: -.028em;
+        overflow-wrap: break-word;
       }
 
       .section-copy,
@@ -1033,9 +1062,9 @@
       }
 
       .section-copy {
-        margin-top: 16px;
-        font-size: 16px;
-        line-height: 1.65;
+        margin-top: 14px;
+        font-size: 15px;
+        line-height: 1.62;
       }
 
       .about-grid {
@@ -1058,13 +1087,13 @@
       }
 
       .pillars {
-        gap: 12px;
+        gap: 10px;
       }
 
       .pillar {
         grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 22px;
+        gap: 7px;
+        padding: 20px;
         border-radius: 16px;
       }
 
@@ -1083,28 +1112,23 @@
       }
 
       .career-nav {
-        display: flex;
-        flex-wrap: nowrap;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
-        margin: 22px -16px 0;
-        padding: 0 16px 8px;
-        overflow-x: auto;
-        overscroll-behavior-inline: contain;
-        scroll-snap-type: inline proximity;
-        scrollbar-width: none;
-      }
-
-      .career-nav::-webkit-scrollbar {
-        display: none;
+        margin: 20px 0 0;
+        padding: 0;
+        overflow: visible;
       }
 
       .career-nav a {
-        flex: 0 0 auto;
-        min-height: 36px;
-        padding: 7px 13px;
-        scroll-snap-align: start;
-        white-space: nowrap;
-        font-size: 12px;
+        width: 100%;
+        min-width: 0;
+        min-height: 42px;
+        padding: 8px 10px;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.25;
+        font-size: 11.5px;
       }
 
       .timeline {
@@ -1113,8 +1137,8 @@
 
       .timeline-item {
         grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 28px 0;
+        gap: 12px;
+        padding: 24px 0;
         scroll-margin-top: 78px;
       }
 
@@ -1132,7 +1156,10 @@
       }
 
       .time-content h3 {
-        font-size: 22px;
+        max-width: 100%;
+        font-size: 21px;
+        line-height: 1.24;
+        overflow-wrap: break-word;
       }
 
       .time-content .company {
@@ -1162,13 +1189,14 @@
 
       .teaching-card {
         grid-template-columns: 1fr;
-        gap: 24px;
-        padding: 24px;
+        gap: 20px;
+        padding: 22px;
         border-radius: 20px;
       }
 
       .teaching-card h3 {
-        font-size: 24px;
+        font-size: 22px;
+        line-height: 1.25;
       }
 
       .teaching-topic {
@@ -1177,7 +1205,7 @@
       }
 
       .tool-groups {
-        gap: 22px;
+        gap: 18px;
       }
 
       .tool-group {
@@ -1202,7 +1230,7 @@
 
       .education {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 10px;
       }
 
       .edu {
@@ -1291,6 +1319,16 @@
         grid-template-columns: 1fr;
       }
 
+
+      .career-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .career-nav a {
+        min-height: 40px;
+      }
+
+
       .time-meta {
         display: block;
       }
@@ -1309,7 +1347,7 @@
 </head>
 
 <body>
-  <!-- Portfolio Camila Novak | versão 13 | PT-EN responsivo | 02/10/2026 -->
+  <!-- Portfolio Camila Novak | versão 14 | mobile refinado | 02/10/2026 -->
 
   <header class="site-header">
     <nav class="wrap nav">
@@ -1326,8 +1364,8 @@
         </div>
 
         <div class="language-switcher" aria-label="Selecionar idioma">
-          <button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
-          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true" aria-label="Português">🇧🇷 <span>PT</span></button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">🇺🇸 <span>EN</span></button>
         </div>
       </div>
     </nav>
