@@ -136,6 +136,49 @@
       color: var(--navy);
     }
 
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .language-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid rgba(25, 59, 85, .22);
+      border-radius: 999px;
+      background: rgba(255,255,255,.62);
+    }
+
+    .language-switcher button {
+      min-width: 38px;
+      height: 30px;
+      padding: 0 10px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--blue);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+
+    .language-switcher button:hover {
+      background: rgba(25, 59, 85, .08);
+    }
+
+    .language-switcher button.active {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(25, 59, 85, .15);
+    }
+
     /* ===== HERO ===== */
 
     .hero {
@@ -758,10 +801,18 @@
         display: none;
       }
 
+      .nav-right {
+        gap: 0;
+      }
+
       .brand-wrap {
         flex-direction: column;
         align-items: flex-start;
         gap: 2px;
+      }
+
+      .language-switcher {
+        flex-shrink: 0;
       }
 
       .hero {
@@ -841,23 +892,443 @@
         flex-direction: column;
       }
     }
+
+    /* ===== MOBILE-FIRST REFINEMENT ===== */
+
+    @media (max-width: 768px) {
+      html {
+        scroll-padding-top: 76px;
+      }
+
+      body {
+        background-attachment: scroll;
+      }
+
+      .wrap {
+        width: min(calc(100% - 32px), var(--max));
+      }
+
+      .site-header {
+        background: rgba(232, 239, 243, .95);
+      }
+
+      .nav {
+        min-height: 66px;
+        gap: 12px;
+      }
+
+      .brand-wrap {
+        min-width: 0;
+      }
+
+      .brand {
+        font-size: 13px;
+        letter-spacing: .045em;
+      }
+
+      .brand-role {
+        font-size: 11px;
+      }
+
+      .language-switcher {
+        padding: 3px;
+      }
+
+      .language-switcher button {
+        min-width: 36px;
+        height: 28px;
+        padding: 0 8px;
+        font-size: 10px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        min-height: auto;
+        padding: 54px 0 64px;
+      }
+
+      .kicker {
+        margin-bottom: 18px;
+        font-size: 10px;
+        letter-spacing: .10em;
+      }
+
+      .hero h1 {
+        font-size: clamp(58px, 17vw, 82px);
+        line-height: .93;
+        letter-spacing: -.05em;
+      }
+
+      .hero-intro {
+        margin-top: 28px;
+        max-width: none;
+        font-size: 16px;
+        line-height: 1.68;
+        text-align: left;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .btn {
+        width: 100%;
+        min-height: 46px;
+      }
+
+      .hero-photo {
+        justify-self: center;
+        width: min(100%, 360px);
+        border-width: 2px;
+        border-radius: 24px;
+        padding: 4px;
+        box-shadow: 0 14px 32px rgba(25, 59, 85, .11);
+      }
+
+      .hero-photo img {
+        border-radius: 18px;
+      }
+
+      .hero-photo::after {
+        inset: 4px;
+        border-radius: 19px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 30px;
+      }
+
+      .section-label {
+        padding-top: 0;
+        font-size: 10px;
+        letter-spacing: .08em;
+      }
+
+      .section-title {
+        max-width: none;
+        font-size: clamp(30px, 9.5vw, 42px);
+        line-height: 1.12;
+        letter-spacing: -.03em;
+      }
+
+      .section-copy,
+      .about-text,
+      .about-aside p,
+      .pillar p,
+      .time-content p,
+      .time-content ul,
+      .teaching-card p,
+      .contact p {
+        text-align: left;
+      }
+
+      .section-copy {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .about-text {
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .about-text p {
+        margin-bottom: 16px;
+      }
+
+      .about-aside {
+        padding: 22px;
+        border-radius: 18px;
+      }
+
+      .pillars {
+        gap: 12px;
+      }
+
+      .pillar {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 22px;
+        border-radius: 16px;
+      }
+
+      .pillar small {
+        padding-top: 0;
+        white-space: normal;
+      }
+
+      .pillar h3 {
+        font-size: 21px;
+      }
+
+      .pillar p {
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .career-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+        margin: 22px -16px 0;
+        padding: 0 16px 8px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scroll-snap-type: inline proximity;
+        scrollbar-width: none;
+      }
+
+      .career-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .career-nav a {
+        flex: 0 0 auto;
+        min-height: 36px;
+        padding: 7px 13px;
+        scroll-snap-align: start;
+        white-space: nowrap;
+        font-size: 12px;
+      }
+
+      .timeline {
+        border-top-color: rgba(25, 59, 85, .12);
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 28px 0;
+        scroll-margin-top: 78px;
+      }
+
+      .time-meta {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+        font-size: 13px;
+      }
+
+      .time-meta strong {
+        margin-bottom: 0;
+        font-size: 14px;
+      }
+
+      .time-content h3 {
+        font-size: 22px;
+      }
+
+      .time-content .company {
+        margin-top: 4px;
+        font-size: 14px;
+      }
+
+      .time-content p,
+      .time-content li {
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .time-content ul {
+        margin-top: 14px;
+        padding-left: 18px;
+      }
+
+      .compact-experience {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .compact-card {
+        padding: 16px;
+      }
+
+      .teaching-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 24px;
+        border-radius: 20px;
+      }
+
+      .teaching-card h3 {
+        font-size: 24px;
+      }
+
+      .teaching-topic {
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+
+      .tool-groups {
+        gap: 22px;
+      }
+
+      .tool-group {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding-bottom: 20px;
+      }
+
+      .tool-group h3 {
+        font-size: 17px;
+      }
+
+      .tags {
+        gap: 7px;
+      }
+
+      .tag {
+        min-height: 32px;
+        padding: 0 11px;
+        font-size: 11px;
+      }
+
+      .education {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .edu {
+        min-height: auto;
+        padding: 22px;
+      }
+
+      .edu h3 {
+        margin-top: 18px;
+        font-size: 20px;
+      }
+
+      .edu .year {
+        margin-top: 18px;
+        padding-top: 0;
+      }
+
+      .language-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .language {
+        min-width: 0;
+        padding: 16px;
+        text-align: center;
+      }
+
+      .contact-wrap {
+        padding-bottom: 52px;
+      }
+
+      .contact {
+        padding: 34px 24px;
+        border-radius: 22px;
+      }
+
+      .contact h2 {
+        font-size: clamp(30px, 9vw, 40px);
+      }
+
+      .contact-links {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 9px;
+      }
+
+      .contact-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        text-align: center;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 6px;
+        padding-bottom: 26px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wrap {
+        width: min(calc(100% - 24px), var(--max));
+      }
+
+      .brand-role {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 46px;
+      }
+
+      .hero h1 {
+        font-size: clamp(54px, 19vw, 74px);
+      }
+
+      .hero-photo {
+        width: min(100%, 330px);
+      }
+
+      .language-row {
+        grid-template-columns: 1fr;
+      }
+
+      .time-meta {
+        display: block;
+      }
+
+      .time-meta strong {
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      .contact {
+        padding: 30px 20px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
-  <!-- Portfolio Camila Novak | versão 11 | correções visuais | 02/10/2026 -->
+  <!-- Portfolio Camila Novak | versão 13 | PT-EN responsivo | 02/10/2026 -->
 
   <header class="site-header">
     <nav class="wrap nav">
-      <div class="brand-wrap"><a class="brand" href="#top">CAMILA NOVAK</a><span class="brand-role">Engenheira Eletricista</span></div>
+      <div class="brand-wrap"><a class="brand" href="#top">CAMILA NOVAK</a><span class="brand-role" data-i18n="brand.role">Engenheira Eletricista</span></div>
 
-      <div class="nav-links">
-        <a href="#sobre">Sobre</a>
-        <a href="#atuacao">Atuação</a>
-        <a href="#trajetoria">Trajetória</a>
-        <a href="#docencia">Docência</a>
-        <a href="#formacao">Formação</a>
-        <a href="#contato">Contato</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#sobre" data-i18n="nav.about">Sobre</a>
+          <a href="#atuacao" data-i18n="nav.work">Atuação</a>
+          <a href="#trajetoria" data-i18n="nav.career">Trajetória</a>
+          <a href="#docencia" data-i18n="nav.teaching">Docência</a>
+          <a href="#formacao" data-i18n="nav.education">Formação</a>
+          <a href="#contato" data-i18n="nav.contact">Contato</a>
+        </div>
+
+        <div class="language-switcher" aria-label="Selecionar idioma">
+          <button type="button" class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
       </div>
     </nav>
   </header>
@@ -868,10 +1339,10 @@
     <div class="wrap">
       <section class="hero">
         <div>
-          <p class="kicker">Engineering / Energy / Data</p>
+          <p class="kicker" data-i18n="hero.kicker">Engenharia / Energia / Dados</p>
 
           <h1>Camila<br>Novak</h1>
-<p class="hero-intro">
+<p class="hero-intro" data-i18n="hero.intro">
             A atuação profissional de Camila Novak concentra-se em planejamento energético,
             formação de preços, modelagem computacional e análise de dados aplicados ao setor elétrico,
             com foco na produção de análises que apoiam a tomada de decisão.
@@ -879,8 +1350,8 @@
 
           <div class="hero-actions">
             <!-- Substitua o link abaixo pelo seu LinkedIn -->
-            <a class="btn btn-primary" href="#contato">Entre em contato</a>
-            <a class="btn btn-secondary" href="#trajetoria">Ver trajetória</a>
+            <a class="btn btn-primary" href="#contato" data-i18n="hero.contact">Entre em contato</a>
+            <a class="btn btn-secondary" href="#trajetoria" data-i18n="hero.career">Ver trajetória</a>
           </div>
         </div>
 
@@ -894,26 +1365,26 @@
     <section id="sobre" class="divider">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-label">01 — Sobre</div>
+          <div class="section-label" data-i18n="about.label">01 — Sobre</div>
           <div>
-            <h2 class="section-title">Engenharia, energia e dados aplicados à tomada de decisão</h2>
+            <h2 class="section-title" data-i18n="about.title">Engenharia, energia e dados aplicados à tomada de decisão</h2>
           </div>
         </div>
 
         <div class="about-grid">
           <div class="about-text">
-            <p>
+            <p data-i18n="about.p1">
               Camila Novak é engenheira eletricista e atua no setor elétrico com planejamento energético,
               formação de preços e análise do Sistema Interligado Nacional (SIN).
             </p>
 
-            <p>
+            <p data-i18n="about.p2">
               Sua trajetória reúne diferentes perspectivas do setor, da engenharia aplicada e da operação
               ao desenvolvimento de soluções para execução e análise de modelos computacionais, evoluindo
               posteriormente para formação de preços, comercialização e planejamento energético.
             </p>
 
-            <p>
+            <p data-i18n="about.p3">
               Em suas análises, utiliza programação e ferramentas de dados para estruturar informações,
               automatizar processos e transformar conteúdo técnico em resultados mais claros e aplicáveis
               à tomada de decisão.
@@ -921,8 +1392,8 @@
           </div>
 
           <aside class="about-aside">
-            <div class="mini-label">Também na sala de aula</div>
-            <p>
+            <div class="mini-label" data-i18n="about.teachingLabel">Também na sala de aula</div>
+            <p data-i18n="about.teachingText">
               Também atua como docente em cursos de pós-graduação, ministrando disciplinas
               relacionadas à formação de preços e comercialização de energia.
             </p>
@@ -935,51 +1406,35 @@
     <section id="atuacao" class="divider">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-label">02 — Atuação</div>
+          <div class="section-label" data-i18n="work.label">02 — Atuação</div>
           <div>
-            <h2 class="section-title">Principais frentes de atuação</h2>
+            <h2 class="section-title" data-i18n="work.title">Principais frentes de atuação</h2>
           </div>
         </div>
 
         <div class="pillars">
           <article class="pillar">
-            <small>01 / Planejamento</small>
-            <h3>Planejamento Energético</h3>
-            <p>
-              Acompanhamento das condições do Sistema Interligado Nacional (SIN) e construção de cenários
-              para diferentes horizontes de tempo, considerando disponibilidade de água nos reservatórios,
-              consumo de energia, geração por fonte, intercâmbios entre regiões e restrições operativas.
-            </p>
+            <small data-i18n="work.p1.label">01 / Planejamento</small>
+            <h3 data-i18n="work.p1.title">Planejamento Energético</h3>
+            <p data-i18n="work.p1.text">Acompanhamento das condições do Sistema Interligado Nacional (SIN) e construção de cenários para diferentes horizontes de tempo, considerando disponibilidade de água nos reservatórios, consumo de energia, geração por fonte, intercâmbios entre regiões e restrições operativas.</p>
           </article>
 
           <article class="pillar">
-            <small>02 / Preços</small>
-            <h3>Formação de Preços & Mercado</h3>
-            <p>
-              Análise dos fatores que influenciam o custo de operação do sistema e os preços de energia,
-              incluindo o Custo Marginal de Operação (CMO) e o Preço de Liquidação das Diferenças (PLD),
-              com suporte a decisões relacionadas ao mercado e à comercialização de energia.
-            </p>
+            <small data-i18n="work.p2.label">02 / Preços</small>
+            <h3 data-i18n="work.p2.title">Formação de Preços & Mercado</h3>
+            <p data-i18n="work.p2.text">Análise dos fatores que influenciam o custo de operação do sistema e os preços de energia, incluindo o Custo Marginal de Operação (CMO) e o Preço de Liquidação das Diferenças (PLD), com suporte a decisões relacionadas ao mercado e à comercialização de energia.</p>
           </article>
 
           <article class="pillar">
-            <small>03 / Modelos</small>
-            <h3>Modelagem Computacional</h3>
-            <p>
-              Utilização de modelos computacionais do setor elétrico, como NEWAVE, DECOMP e DESSEM,
-              para simular cenários futuros, avaliar condições de operação e interpretar seus impactos
-              sobre o planejamento e a formação de preços.
-            </p>
+            <small data-i18n="work.p3.label">03 / Modelos</small>
+            <h3 data-i18n="work.p3.title">Modelagem Computacional</h3>
+            <p data-i18n="work.p3.text">Utilização de modelos computacionais do setor elétrico, como NEWAVE, DECOMP e DESSEM, para simular cenários futuros, avaliar condições de operação e interpretar seus impactos sobre o planejamento e a formação de preços.</p>
           </article>
 
           <article class="pillar">
-            <small>04 / Dados</small>
-            <h3>Dados & Automação</h3>
-            <p>
-              Uso de programação e ferramentas de análise de dados para organizar grandes volumes de
-              informação, automatizar rotinas repetitivas e produzir análises e painéis que apoiam a
-              tomada de decisão. Entre as principais ferramentas estão Python, R, SQL e Power BI.
-            </p>
+            <small data-i18n="work.p4.label">04 / Dados</small>
+            <h3 data-i18n="work.p4.title">Dados & Automação</h3>
+            <p data-i18n="work.p4.text">Uso de programação e ferramentas de análise de dados para organizar grandes volumes de informação, automatizar rotinas repetitivas e produzir análises e painéis que apoiam a tomada de decisão. Entre as principais ferramentas estão Python, R, SQL e Power BI.</p>
           </article>
         </div>
       </div>
@@ -989,21 +1444,21 @@
     <section id="trajetoria" class="divider">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-label">03 — Trajetória</div>
+          <div class="section-label" data-i18n="career.label">03 — Trajetória</div>
           <div>
-            <h2 class="section-title">Trajetória profissional no setor elétrico</h2>
-            <p class="section-copy">
+            <h2 class="section-title" data-i18n="career.title">Trajetória profissional no setor elétrico</h2>
+            <p class="section-copy" data-i18n="career.intro">
               A trajetória reúne experiências em engenharia aplicada, operação, tecnologia, comercialização
               e planejamento energético, preservando a base técnica que sustenta a atuação atual.
             </p>
 
             <nav class="career-nav" aria-label="Atalhos para experiências profissionais">
-              <a href="#exp-ctg">CTG Brasil</a>
-              <a href="#exp-safira">Grupo Safira</a>
-              <a href="#exp-norus">Norus</a>
-              <a href="#exp-cushman">Cushman & Wakefield</a>
-              <a href="#exp-engenharia">Engenharia aplicada</a>
-              <a href="#exp-base">Base técnica</a>
+              <a href="#exp-ctg"><span data-i18n="career.nav.ctg">CTG Brasil</span></a>
+              <a href="#exp-safira"><span data-i18n="career.nav.safira">Grupo Safira</span></a>
+              <a href="#exp-norus"><span data-i18n="career.nav.norus">Norus</span></a>
+              <a href="#exp-cushman"><span data-i18n="career.nav.cushman">Cushman & Wakefield</span></a>
+              <a href="#exp-engenharia"><span data-i18n="career.nav.engineering">Engenharia aplicada</span></a>
+              <a href="#exp-base"><span data-i18n="career.nav.base">Base técnica</span></a>
             </nav>
           </div>
         </div>
@@ -1012,87 +1467,87 @@
 
           <article class="timeline-item" id="exp-ctg">
             <div class="time-meta">
-              <strong>CTG Brasil</strong>
-              nov/2024 — atual
+              <strong data-i18n="career.ctg.company">CTG Brasil</strong>
+              <span data-i18n="career.ctg.date">nov/2024 — atual</span>
             </div>
 
             <div class="time-content">
-              <h3>Analista de Planejamento Energético Sênior</h3>
-              <div class="company">Planejamento Energético</div>
+              <h3 data-i18n="career.ctg.role">Analista de Planejamento Energético Sênior</h3>
+              <div class="company" data-i18n="career.ctg.area">Planejamento Energético</div>
 
-              <p>
+              <p data-i18n="career.ctg.desc">
                 Atuação em planejamento energético nos horizontes de curtíssimo, curto e longo prazo,
                 combinando acompanhamento conjuntural do Sistema Interligado Nacional (SIN),
                 formação de preços e estudos prospectivos sobre a evolução do setor elétrico.
               </p>
 
               <ul>
-                <li>Acompanhamento do Programa Mensal da Operação Energética (PMO), revisões semanais, hidrologia, carga, geração, armazenamento, despacho térmico, intercâmbios e restrições.</li>
-                <li>Desenvolvimento de cenários e sensibilidades de Preço de Liquidação das Diferenças (PLD) e Custo Marginal de Operação (CMO).</li>
-                <li>Análise e interpretação de resultados de NEWAVE, DECOMP e DESSEM.</li>
-                <li>Estruturação de dados, relatórios, dashboards e automações para suporte à decisão.</li>
+                <li data-i18n="career.ctg.b1">Acompanhamento do Programa Mensal da Operação Energética (PMO), revisões semanais, hidrologia, carga, geração, armazenamento, despacho térmico, intercâmbios e restrições.</li>
+                <li data-i18n="career.ctg.b2">Desenvolvimento de cenários e sensibilidades de Preço de Liquidação das Diferenças (PLD) e Custo Marginal de Operação (CMO).</li>
+                <li data-i18n="career.ctg.b3">Análise e interpretação de resultados de NEWAVE, DECOMP e DESSEM.</li>
+                <li data-i18n="career.ctg.b4">Estruturação de dados, relatórios, dashboards e automações para suporte à decisão.</li>
               </ul>
             </div>
           </article>
 
           <article class="timeline-item" id="exp-safira">
             <div class="time-meta">
-              <strong>Grupo Safira</strong>
-              mai/2024 — nov/2024
+              <strong data-i18n="career.safira.company">Grupo Safira</strong>
+              <span data-i18n="career.safira.date">mai/2024 — nov/2024</span>
             </div>
 
             <div class="time-content">
-              <h3>Analista de Middle Office Sênior</h3>
-              <div class="company">Formação de Preços & Comercialização</div>
+              <h3 data-i18n="career.safira.role">Analista de Middle Office Sênior</h3>
+              <div class="company" data-i18n="career.safira.area">Formação de Preços & Comercialização</div>
 
-              <p>
+              <p data-i18n="career.safira.desc">
                 Atuação em formação de preços, projeções de PLD e acompanhamento de variáveis
                 energéticas para suporte à comercialização de energia.
               </p>
 
               <ul>
-                <li>Acompanhamento de <abbr title="Preço de Liquidação das Diferenças">PLD</abbr> no curto e curtíssimo prazo, <abbr title="Programa Mensal da Operação Energética">PMO</abbr> e revisões semanais.</li>
-                <li>Monitoramento de hidrologia, carga, geração, despacho térmico e meteorologia.</li>
-                <li>Estruturação de indicadores, dashboards e automações para as rotinas da área.</li>
+                <li data-i18n="career.safira.b1">Acompanhamento de PLD no curto e curtíssimo prazo, PMO e revisões semanais.</li>
+                <li data-i18n="career.safira.b2">Monitoramento de hidrologia, carga, geração, despacho térmico e meteorologia.</li>
+                <li data-i18n="career.safira.b3">Estruturação de indicadores, dashboards e automações para as rotinas da área.</li>
               </ul>
             </div>
           </article>
 
           <article class="timeline-item" id="exp-norus">
             <div class="time-meta">
-              <strong>Norus</strong>
-              out/2021 — mai/2024
+              <strong data-i18n="career.norus.company">Norus</strong>
+              <span data-i18n="career.norus.date">out/2021 — mai/2024</span>
             </div>
 
             <div class="time-content">
-              <h3>Analista de Negócios</h3>
-              <div class="company">Setor Elétrico · Tecnologia · Produto</div>
+              <h3 data-i18n="career.norus.role">Analista de Negócios</h3>
+              <div class="company" data-i18n="career.norus.area">Setor Elétrico · Tecnologia · Produto</div>
 
-              <p>
+              <p data-i18n="career.norus.desc">
                 Atuação na interface entre setor elétrico, tecnologia e produto, contribuindo
                 para o desenvolvimento contínuo do Prospec, solução voltada ao gerenciamento,
                 execução e análise dos modelos NEWAVE, DECOMP, DESSEM e GEVAZP.
               </p>
 
               <ul>
-                <li>Levantamento e tradução de necessidades de usuários em requisitos de produto.</li>
-                <li>Execução, análise e suporte técnico relacionado aos modelos computacionais do setor elétrico.</li>
-                <li>Interface entre usuários, equipe técnica e desenvolvimento para evolução da solução.</li>
+                <li data-i18n="career.norus.b1">Levantamento e tradução de necessidades de usuários em requisitos de produto.</li>
+                <li data-i18n="career.norus.b2">Execução, análise e suporte técnico relacionado aos modelos computacionais do setor elétrico.</li>
+                <li data-i18n="career.norus.b3">Interface entre usuários, equipe técnica e desenvolvimento para evolução da solução.</li>
               </ul>
             </div>
           </article>
 
           <article class="timeline-item" id="exp-cushman">
             <div class="time-meta">
-              <strong>Cushman & Wakefield</strong>
-              2020 — 2021
+              <strong data-i18n="career.cushman.company">Cushman & Wakefield</strong>
+              <span data-i18n="career.cushman.date">2020 — 2021</span>
             </div>
 
             <div class="time-content">
-              <h3>Dirigente de Operação</h3>
-              <div class="company">ONS Florianópolis · Schneider Electric Blumenau</div>
+              <h3 data-i18n="career.cushman.role">Dirigente de Operação</h3>
+              <div class="company" data-i18n="career.cushman.area">ONS Florianópolis · Schneider Electric Blumenau</div>
 
-              <p>
+              <p data-i18n="career.cushman.desc">
                 Atuação em operação predial e gestão de facilities, com responsabilidade sobre
                 manutenção elétrica, infraestrutura, terceiros, contratos, segurança patrimonial,
                 compras e planos de ação para correção e mitigação de riscos.
@@ -1102,27 +1557,27 @@
 
           <article class="timeline-item" id="exp-engenharia">
             <div class="time-meta">
-              <strong>Engenharia aplicada</strong>
-              2018 — 2020
+              <strong data-i18n="career.eng.company">Engenharia aplicada</strong>
+              <span data-i18n="career.eng.date">2018 — 2020</span>
             </div>
 
             <div class="time-content">
-              <h3>Projetos, instalações e supervisão de engenharia</h3>
+              <h3 data-i18n="career.eng.role">Projetos, instalações e supervisão de engenharia</h3>
 
-              <p>
+              <p data-i18n="career.eng.desc">
                 Experiências que consolidaram sua base como engenheira eletricista,
                 da elaboração de projetos e orçamentos à supervisão de obras e responsabilidade técnica.
               </p>
 
               <div class="compact-experience">
                 <div class="compact-card">
-                  <strong>Comando Painéis</strong>
-                  <span>Engenheira Eletricista · Supervisora do Setor de Engenharia</span>
+                  <strong data-i18n="career.eng.comando">Comando Painéis</strong>
+                  <span data-i18n="career.eng.comandoRole">Engenheira Eletricista · Supervisora do Setor de Engenharia</span>
                 </div>
 
                 <div class="compact-card">
-                  <strong>Nova Fase Instalações Elétricas</strong>
-                  <span>Engenheira Eletricista · Supervisora de Engenharia · Assistente de Projetos · Estagiária</span>
+                  <strong data-i18n="career.eng.nova">Nova Fase Instalações Elétricas</strong>
+                  <span data-i18n="career.eng.novaRole">Engenheira Eletricista · Supervisora de Engenharia · Assistente de Projetos · Estagiária</span>
                 </div>
               </div>
             </div>
@@ -1130,22 +1585,22 @@
 
           <article class="timeline-item" id="exp-base">
             <div class="time-meta">
-              <strong>Base técnica</strong>
-              2013 — 2018
+              <strong data-i18n="career.base.company">Base técnica</strong>
+              <span data-i18n="career.base.date">2013 — 2018</span>
             </div>
 
             <div class="time-content">
-              <h3>Pesquisa & suporte técnico em engenharia</h3>
+              <h3 data-i18n="career.base.role">Pesquisa & suporte técnico em engenharia</h3>
 
               <div class="compact-experience">
                 <div class="compact-card">
-                  <strong>AltoQi</strong>
-                  <span>Estagiária no Departamento de Suporte Técnico · Engenharia elétrica e instalações</span>
+                  <strong data-i18n="career.base.altoqi">AltoQi</strong>
+                  <span data-i18n="career.base.altoqiRole">Estagiária no Departamento de Suporte Técnico · Engenharia elétrica e instalações</span>
                 </div>
 
                 <div class="compact-card">
-                  <strong>CNPq</strong>
-                  <span>Bolsista · Pesquisa em gestão energética e microgeração solar fotovoltaica</span>
+                  <strong data-i18n="career.base.cnpq">CNPq</strong>
+                  <span data-i18n="career.base.cnpqRole">Bolsista · Pesquisa em gestão energética e microgeração solar fotovoltaica</span>
                 </div>
               </div>
             </div>
@@ -1159,20 +1614,20 @@
     <section id="docencia" class="teaching">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-label">04 — Docência</div>
+          <div class="section-label" data-i18n="teaching.label">04 — Docência</div>
           <div>
-            <h2 class="section-title">Docência em formação de preços e comercialização de energia</h2>
+            <h2 class="section-title" data-i18n="teaching.title">Docência em formação de preços e comercialização de energia</h2>
           </div>
         </div>
 
         <div class="teaching-card">
           <div>
-            <h3>Docente em cursos de pós-graduação · EBPOS</h3>
-            <p>
+            <h3 data-i18n="teaching.role">Docente em cursos de pós-graduação · EBPOS</h3>
+            <p data-i18n="teaching.p1">
               Ministra disciplinas relacionadas à formação de preços e comercialização de energia
               em diferentes cursos de pós-graduação.
             </p>
-            <p>
+            <p data-i18n="teaching.p2">
               As aulas conectam fundamentos do setor elétrico, formação de preços, comercialização,
               modelagem computacional e aplicação prática, com abordagem técnica acessível e
               preservação da profundidade conceitual.
@@ -1180,10 +1635,10 @@
           </div>
 
           <div class="teaching-list">
-            <div class="teaching-topic">Formação de preços de energia</div>
-            <div class="teaching-topic">Comercialização de energia</div>
-            <div class="teaching-topic">Modelos de formação de preços de energia</div>
-            <div class="teaching-topic">Aplicação prática ao mercado de energia</div>
+            <div class="teaching-topic" data-i18n="teaching.t1">Formação de preços de energia</div>
+            <div class="teaching-topic" data-i18n="teaching.t2">Comercialização de energia</div>
+            <div class="teaching-topic" data-i18n="teaching.t3">Modelos de formação de preços de energia</div>
+            <div class="teaching-topic" data-i18n="teaching.t4">Aplicação prática ao mercado de energia</div>
           </div>
         </div>
       </div>
@@ -1193,15 +1648,15 @@
     <section class="divider">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-label">05 — Ferramentas</div>
+          <div class="section-label" data-i18n="tools.label">05 — Ferramentas</div>
           <div>
-            <h2 class="section-title">Modelos, dados e conhecimentos do setor elétrico</h2>
+            <h2 class="section-title" data-i18n="tools.title">Modelos, dados e conhecimentos do setor elétrico</h2>
           </div>
         </div>
 
         <div class="tool-groups">
           <div class="tool-group">
-            <h3>Modelos e ferramentas do setor elétrico</h3>
+            <h3 data-i18n="tools.g1">Modelos e ferramentas do setor elétrico</h3>
             <div class="tags">
               <span class="tag">NEWAVE</span>
               <span class="tag">DECOMP</span>
@@ -1214,7 +1669,7 @@
           </div>
 
           <div class="tool-group">
-            <h3>Programação e análise de dados</h3>
+            <h3 data-i18n="tools.g2">Programação e análise de dados</h3>
             <div class="tags">
               <span class="tag">Python</span>
               <span class="tag">R</span>
@@ -1224,13 +1679,13 @@
           </div>
 
           <div class="tool-group">
-            <h3>Temas de atuação</h3>
+            <h3 data-i18n="tools.g3">Temas de atuação</h3>
             <div class="tags">
-              <span class="tag">Planejamento Energético</span>
-              <span class="tag">Formação de Preços</span>
-              <span class="tag">Comercialização de Energia</span>
+              <span class="tag" data-i18n="tools.tag.energyPlanning">Planejamento Energético</span>
+              <span class="tag" data-i18n="tools.tag.priceFormation">Formação de Preços</span>
+              <span class="tag" data-i18n="tools.tag.energyTrading">Comercialização de Energia</span>
               <span class="tag">SIN</span>
-              <span class="tag">Energias Renováveis</span>
+              <span class="tag" data-i18n="tools.tag.renewables">Energias Renováveis</span>
             </div>
           </div>
         </div>
@@ -1241,30 +1696,30 @@
     <section id="formacao" class="divider">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-label">06 — Formação</div>
+          <div class="section-label" data-i18n="education.label">06 — Formação</div>
           <div>
-            <h2 class="section-title">Formação acadêmica</h2>
+            <h2 class="section-title" data-i18n="education.title">Formação acadêmica</h2>
           </div>
         </div>
 
         <div class="education">
           <article class="edu">
-            <div class="degree">Bacharelado</div>
-            <h3>Engenharia Elétrica</h3>
+            <div class="degree" data-i18n="education.bachelor">Bacharelado</div>
+            <h3 data-i18n="education.electrical">Engenharia Elétrica</h3>
             <p>Instituto Federal de Santa Catarina — IFSC</p>
             <div class="year">2013 — 2018</div>
           </article>
 
           <article class="edu">
             <div class="degree">MBA</div>
-            <h3>Gestão de Projetos</h3>
+            <h3 data-i18n="education.pm">Gestão de Projetos</h3>
             <p>Universidade Estácio de Sá</p>
             <div class="year">2020 — 2022</div>
           </article>
 
           <article class="edu">
             <div class="degree">MBA</div>
-            <h3>Setor Elétrico e Mercado de Energia</h3>
+            <h3 data-i18n="education.energyMBA">Setor Elétrico e Mercado de Energia</h3>
             <p>Universidade Católica de Petrópolis — UCP</p>
             <div class="year">2023 — 2025</div>
           </article>
@@ -1276,15 +1731,15 @@
     <section class="divider">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-label">07 — Idiomas</div>
+          <div class="section-label" data-i18n="languages.label">07 — Idiomas</div>
           <div>
-            <h2 class="section-title">Idiomas</h2>
+            <h2 class="section-title" data-i18n="languages.title">Idiomas</h2>
           </div>
         </div>
 
         <div class="language-row">
-          <div class="language">Português</div>
-          <div class="language">English</div>
+          <div class="language" data-i18n="languages.pt">Português</div>
+          <div class="language" data-i18n="languages.en">English</div>
         </div>
       </div>
     </section>
@@ -1292,11 +1747,11 @@
     <!-- CONTATO -->
     <div id="contato" class="wrap contact-wrap">
       <section class="contact">
-        <div class="section-label">08 — Contato</div>
+        <div class="section-label" data-i18n="contact.label">08 — Contato</div>
 
-        <h2>Contato profissional</h2>
+        <h2 data-i18n="contact.title">Contato profissional</h2>
 
-        <p>
+        <p data-i18n="contact.text">
           Os canais abaixo estão disponíveis para contatos profissionais, oportunidades,
           projetos, atividades acadêmicas e trocas relacionadas ao setor elétrico.
         </p>
@@ -1304,12 +1759,12 @@
         <div class="contact-links">
           <a href="mailto:camila.novak@outlook.com?subject=Contato%20via%20portf%C3%B3lio">camila.novak@outlook.com</a>
 
-          <a href="https://linkedin.com/in/camila-novak/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://linkedin.com/in/camila-novak/" target="_blank" rel="noopener" data-i18n="contact.linkedin">LinkedIn ↗</a>
 
           <!-- Opcional: mantenha apenas se quiser divulgar o GitHub nesta versão -->
           <!-- <a href="https://github.com/camilanovak" target="_blank" rel="noopener">GitHub ↗</a> -->
 
-          <a href="http://lattes.cnpq.br/1461786919599821" target="_blank" rel="noopener">Lattes ↗</a>
+          <a href="http://lattes.cnpq.br/1461786919599821" target="_blank" rel="noopener" data-i18n="contact.lattes">Lattes ↗</a>
         </div>
       </section>
     </div>
@@ -1318,8 +1773,355 @@
 
   <footer class="wrap">
     <span>© <span id="year"></span> Camila Novak</span>
-    <span>Engenharia · Energia · Dados</span>
+    <span data-i18n="footer.tagline">Engenharia · Energia · Dados</span>
   </footer>
+
+
+  <script>
+    const translations = {
+      pt: {
+        "nav.about": "Sobre",
+        "nav.work": "Atuação",
+        "nav.career": "Trajetória",
+        "nav.teaching": "Docência",
+        "nav.education": "Formação",
+        "nav.contact": "Contato",
+
+        "brand.role": "Engenheira Eletricista",
+
+        "hero.kicker": "Engenharia / Energia / Dados",
+        "hero.intro": "A atuação profissional de Camila Novak concentra-se em planejamento energético, formação de preços, modelagem computacional e análise de dados aplicados ao setor elétrico, com foco na produção de análises que apoiam a tomada de decisão.",
+        "hero.contact": "Entre em contato",
+        "hero.career": "Ver trajetória",
+
+        "about.label": "01 — Sobre",
+        "about.title": "Engenharia, energia e dados aplicados à tomada de decisão",
+        "about.p1": "Camila Novak é engenheira eletricista e atua no setor elétrico com planejamento energético, formação de preços e análise do Sistema Interligado Nacional (SIN).",
+        "about.p2": "Sua trajetória reúne diferentes perspectivas do setor, da engenharia aplicada e da operação ao desenvolvimento de soluções para execução e análise de modelos computacionais, evoluindo posteriormente para formação de preços, comercialização e planejamento energético.",
+        "about.p3": "Em suas análises, utiliza programação e ferramentas de dados para estruturar informações, automatizar processos e transformar conteúdo técnico em resultados mais claros e aplicáveis à tomada de decisão.",
+        "about.teachingLabel": "Também na sala de aula",
+        "about.teachingText": "Também atua como docente em cursos de pós-graduação, ministrando disciplinas relacionadas à formação de preços e comercialização de energia.",
+
+        "work.label": "02 — Atuação",
+        "work.title": "Principais frentes de atuação",
+        "work.p1.label": "01 / Planejamento",
+        "work.p1.title": "Planejamento Energético",
+        "work.p1.text": "Acompanhamento das condições do Sistema Interligado Nacional (SIN) e construção de cenários para diferentes horizontes de tempo, considerando disponibilidade de água nos reservatórios, consumo de energia, geração por fonte, intercâmbios entre regiões e restrições operativas.",
+        "work.p2.label": "02 / Preços",
+        "work.p2.title": "Formação de Preços & Mercado",
+        "work.p2.text": "Análise dos fatores que influenciam o custo de operação do sistema e os preços de energia, incluindo o Custo Marginal de Operação (CMO) e o Preço de Liquidação das Diferenças (PLD), com suporte a decisões relacionadas ao mercado e à comercialização de energia.",
+        "work.p3.label": "03 / Modelos",
+        "work.p3.title": "Modelagem Computacional",
+        "work.p3.text": "Utilização de modelos computacionais do setor elétrico, como NEWAVE, DECOMP e DESSEM, para simular cenários futuros, avaliar condições de operação e interpretar seus impactos sobre o planejamento e a formação de preços.",
+        "work.p4.label": "04 / Dados",
+        "work.p4.title": "Dados & Automação",
+        "work.p4.text": "Uso de programação e ferramentas de análise de dados para organizar grandes volumes de informação, automatizar rotinas repetitivas e produzir análises e painéis que apoiam a tomada de decisão. Entre as principais ferramentas estão Python, R, SQL e Power BI.",
+
+        "career.label": "03 — Trajetória",
+        "career.title": "Trajetória profissional no setor elétrico",
+        "career.intro": "A trajetória reúne experiências em engenharia aplicada, operação, tecnologia, comercialização e planejamento energético, preservando a base técnica que sustenta a atuação atual.",
+        "career.nav.ctg": "CTG Brasil",
+        "career.nav.safira": "Grupo Safira",
+        "career.nav.norus": "Norus",
+        "career.nav.cushman": "Cushman & Wakefield",
+        "career.nav.engineering": "Engenharia aplicada",
+        "career.nav.base": "Base técnica",
+
+        "career.ctg.company": "CTG Brasil",
+        "career.ctg.date": "nov/2024 — atual",
+        "career.ctg.role": "Analista de Planejamento Energético Sênior",
+        "career.ctg.area": "Planejamento Energético",
+        "career.ctg.desc": "Atuação em planejamento energético nos horizontes de curtíssimo, curto e longo prazo, combinando acompanhamento conjuntural do Sistema Interligado Nacional (SIN), formação de preços e estudos prospectivos sobre a evolução do setor elétrico.",
+        "career.ctg.b1": "Acompanhamento do Programa Mensal da Operação Energética (PMO), revisões semanais, hidrologia, carga, geração, armazenamento, despacho térmico, intercâmbios e restrições.",
+        "career.ctg.b2": "Desenvolvimento de cenários e sensibilidades de Preço de Liquidação das Diferenças (PLD) e Custo Marginal de Operação (CMO).",
+        "career.ctg.b3": "Análise e interpretação de resultados de NEWAVE, DECOMP e DESSEM.",
+        "career.ctg.b4": "Estruturação de dados, relatórios, dashboards e automações para suporte à decisão.",
+
+        "career.safira.company": "Grupo Safira",
+        "career.safira.date": "mai/2024 — nov/2024",
+        "career.safira.role": "Analista de Middle Office Sênior",
+        "career.safira.area": "Formação de Preços & Comercialização",
+        "career.safira.desc": "Atuação em formação de preços, projeções de PLD e acompanhamento de variáveis energéticas para suporte à comercialização de energia.",
+        "career.safira.b1": "Acompanhamento de PLD no curto e curtíssimo prazo, PMO e revisões semanais.",
+        "career.safira.b2": "Monitoramento de hidrologia, carga, geração, despacho térmico e meteorologia.",
+        "career.safira.b3": "Estruturação de indicadores, dashboards e automações para as rotinas da área.",
+
+        "career.norus.company": "Norus",
+        "career.norus.date": "out/2021 — mai/2024",
+        "career.norus.role": "Analista de Negócios",
+        "career.norus.area": "Setor Elétrico · Tecnologia · Produto",
+        "career.norus.desc": "Atuação na interface entre setor elétrico, tecnologia e produto, contribuindo para o desenvolvimento contínuo do Prospec, solução voltada ao gerenciamento, execução e análise dos modelos NEWAVE, DECOMP, DESSEM e GEVAZP.",
+        "career.norus.b1": "Levantamento e tradução de necessidades de usuários em requisitos de produto.",
+        "career.norus.b2": "Execução, análise e suporte técnico relacionado aos modelos computacionais do setor elétrico.",
+        "career.norus.b3": "Interface entre usuários, equipe técnica e desenvolvimento para evolução da solução.",
+
+        "career.cushman.company": "Cushman & Wakefield",
+        "career.cushman.date": "2020 — 2021",
+        "career.cushman.role": "Dirigente de Operação",
+        "career.cushman.area": "ONS Florianópolis · Schneider Electric Blumenau",
+        "career.cushman.desc": "Atuação em operação predial e gestão de facilities, com responsabilidade sobre manutenção elétrica, infraestrutura, terceiros, contratos, segurança patrimonial, compras e planos de ação para correção e mitigação de riscos.",
+
+        "career.eng.company": "Engenharia aplicada",
+        "career.eng.date": "2018 — 2020",
+        "career.eng.role": "Projetos, instalações e supervisão de engenharia",
+        "career.eng.desc": "Experiências que consolidaram sua base como engenheira eletricista, da elaboração de projetos e orçamentos à supervisão de obras e responsabilidade técnica.",
+        "career.eng.comando": "Comando Painéis",
+        "career.eng.comandoRole": "Engenheira Eletricista · Supervisora do Setor de Engenharia",
+        "career.eng.nova": "Nova Fase Instalações Elétricas",
+        "career.eng.novaRole": "Engenheira Eletricista · Supervisora de Engenharia · Assistente de Projetos · Estagiária",
+
+        "career.base.company": "Base técnica",
+        "career.base.date": "2013 — 2018",
+        "career.base.role": "Pesquisa & suporte técnico em engenharia",
+        "career.base.altoqi": "AltoQi",
+        "career.base.altoqiRole": "Estagiária no Departamento de Suporte Técnico · Engenharia elétrica e instalações",
+        "career.base.cnpq": "CNPq",
+        "career.base.cnpqRole": "Bolsista · Pesquisa em gestão energética e microgeração solar fotovoltaica",
+
+        "teaching.label": "04 — Docência",
+        "teaching.title": "Docência em formação de preços e comercialização de energia",
+        "teaching.role": "Docente em cursos de pós-graduação · EBPOS",
+        "teaching.p1": "Ministra disciplinas relacionadas à formação de preços e comercialização de energia em diferentes cursos de pós-graduação.",
+        "teaching.p2": "As aulas conectam fundamentos do setor elétrico, formação de preços, comercialização, modelagem computacional e aplicação prática, com abordagem técnica acessível e preservação da profundidade conceitual.",
+        "teaching.t1": "Formação de preços de energia",
+        "teaching.t2": "Comercialização de energia",
+        "teaching.t3": "Modelos de formação de preços de energia",
+        "teaching.t4": "Aplicação prática ao mercado de energia",
+
+        "tools.label": "05 — Ferramentas",
+        "tools.title": "Modelos, dados e conhecimentos do setor elétrico",
+        "tools.g1": "Modelos e ferramentas do setor elétrico",
+        "tools.g2": "Programação e análise de dados",
+        "tools.g3": "Temas de atuação",
+        "tools.tag.energyPlanning": "Planejamento Energético",
+        "tools.tag.priceFormation": "Formação de Preços",
+        "tools.tag.energyTrading": "Comercialização de Energia",
+        "tools.tag.renewables": "Energias Renováveis",
+
+        "education.label": "06 — Formação",
+        "education.title": "Formação acadêmica",
+        "education.bachelor": "Bacharelado",
+        "education.electrical": "Engenharia Elétrica",
+        "education.pm": "Gestão de Projetos",
+        "education.energyMBA": "Setor Elétrico e Mercado de Energia",
+
+        "languages.label": "07 — Idiomas",
+        "languages.title": "Idiomas",
+        "languages.pt": "Português",
+        "languages.en": "English",
+
+        "contact.label": "08 — Contato",
+        "contact.title": "Contato profissional",
+        "contact.text": "Os canais abaixo estão disponíveis para contatos profissionais, oportunidades, projetos, atividades acadêmicas e trocas relacionadas ao setor elétrico.",
+        "contact.linkedin": "LinkedIn ↗",
+        "contact.lattes": "Lattes ↗",
+
+        "footer.tagline": "Engenharia · Energia · Dados"
+      },
+
+      en: {
+        "nav.about": "About",
+        "nav.work": "Expertise",
+        "nav.career": "Career",
+        "nav.teaching": "Teaching",
+        "nav.education": "Education",
+        "nav.contact": "Contact",
+
+        "brand.role": "Electrical Engineer",
+
+        "hero.kicker": "Engineering / Energy / Data",
+        "hero.intro": "Camila Novak's professional work focuses on energy planning, price formation, computational modeling and data analysis applied to the power sector, producing analyses that support decision-making.",
+        "hero.contact": "Get in touch",
+        "hero.career": "View career",
+
+        "about.label": "01 — About",
+        "about.title": "Engineering, energy and data applied to decision-making",
+        "about.p1": "Camila Novak is an electrical engineer working in the power sector, with a focus on energy planning, price formation and analysis of Brazil's National Interconnected System (SIN).",
+        "about.p2": "Her career brings together different perspectives of the sector, from applied engineering and operations to the development of solutions for running and analyzing computational models, followed by roles in price formation, energy trading and energy planning.",
+        "about.p3": "Her work also uses programming and data analysis tools to structure information, automate processes and transform technical content into clearer, actionable results for decision-making.",
+        "about.teachingLabel": "Also in the classroom",
+        "about.teachingText": "She also teaches postgraduate courses, covering subjects related to energy price formation and energy trading.",
+
+        "work.label": "02 — Expertise",
+        "work.title": "Main areas of expertise",
+        "work.p1.label": "01 / Planning",
+        "work.p1.title": "Energy Planning",
+        "work.p1.text": "Monitoring conditions across Brazil's National Interconnected System (SIN) and developing scenarios across different time horizons, considering reservoir availability, electricity demand, generation by source, regional exchanges and operating constraints.",
+        "work.p2.label": "02 / Prices",
+        "work.p2.title": "Price Formation & Energy Markets",
+        "work.p2.text": "Analysis of the factors that drive system operating costs and electricity prices, including the Marginal Operating Cost (CMO) and Differences Settlement Price (PLD), supporting decisions related to energy markets and trading.",
+        "work.p3.label": "03 / Models",
+        "work.p3.title": "Computational Modeling",
+        "work.p3.text": "Use of power-sector computational models such as NEWAVE, DECOMP and DESSEM to simulate future scenarios, assess operating conditions and interpret their impacts on planning and price formation.",
+        "work.p4.label": "04 / Data",
+        "work.p4.title": "Data & Automation",
+        "work.p4.text": "Use of programming and data-analysis tools to organize large volumes of information, automate repetitive workflows and build analyses and dashboards that support decision-making. Core tools include Python, R, SQL and Power BI.",
+
+        "career.label": "03 — Career",
+        "career.title": "Professional career in the power sector",
+        "career.intro": "Her career combines experience in applied engineering, operations, technology, energy trading and energy planning, supported by a strong technical foundation.",
+        "career.nav.ctg": "CTG Brasil",
+        "career.nav.safira": "Grupo Safira",
+        "career.nav.norus": "Norus",
+        "career.nav.cushman": "Cushman & Wakefield",
+        "career.nav.engineering": "Applied engineering",
+        "career.nav.base": "Technical foundation",
+
+        "career.ctg.company": "CTG Brasil",
+        "career.ctg.date": "Nov 2024 — Present",
+        "career.ctg.role": "Senior Energy Planning Analyst",
+        "career.ctg.area": "Energy Planning",
+        "career.ctg.desc": "Work across very short-, short- and long-term energy-planning horizons, combining current-system monitoring, price formation and forward-looking studies on the evolution of the power sector.",
+        "career.ctg.b1": "Monitoring the Monthly Energy Operation Program (PMO), weekly reviews, hydrology, load, generation, storage, thermal dispatch, regional exchanges and operating constraints.",
+        "career.ctg.b2": "Development of scenarios and sensitivities for the Differences Settlement Price (PLD) and Marginal Operating Cost (CMO).",
+        "career.ctg.b3": "Analysis and interpretation of NEWAVE, DECOMP and DESSEM results.",
+        "career.ctg.b4": "Structuring data, reports, dashboards and automated workflows to support decision-making.",
+
+        "career.safira.company": "Grupo Safira",
+        "career.safira.date": "May 2024 — Nov 2024",
+        "career.safira.role": "Senior Middle Office Analyst",
+        "career.safira.area": "Price Formation & Energy Trading",
+        "career.safira.desc": "Work focused on price formation, PLD projections and monitoring energy-market variables to support energy-trading activities.",
+        "career.safira.b1": "Monitoring short- and very-short-term PLD, the Monthly Energy Operation Program (PMO) and weekly reviews.",
+        "career.safira.b2": "Monitoring hydrology, load, generation, thermal dispatch and weather conditions.",
+        "career.safira.b3": "Structuring indicators, dashboards and automated workflows for the team's analytical routines.",
+
+        "career.norus.company": "Norus",
+        "career.norus.date": "Oct 2021 — May 2024",
+        "career.norus.role": "Business Analyst",
+        "career.norus.area": "Power Sector · Technology · Product",
+        "career.norus.desc": "Work at the interface of the power sector, technology and product, contributing to the continuous development of Prospec, a solution for managing, running and analyzing NEWAVE, DECOMP, DESSEM and GEVAZP models.",
+        "career.norus.b1": "Gathering user needs and translating them into product requirements.",
+        "career.norus.b2": "Execution, analysis and technical support related to power-sector computational models.",
+        "career.norus.b3": "Interface between users, technical teams and software development to continuously improve the solution.",
+
+        "career.cushman.company": "Cushman & Wakefield",
+        "career.cushman.date": "2020 — 2021",
+        "career.cushman.role": "Operations Lead",
+        "career.cushman.area": "ONS Florianópolis · Schneider Electric Blumenau",
+        "career.cushman.desc": "Building-operations and facilities-management responsibilities covering electrical maintenance, infrastructure, contractors, contracts, site security, procurement and action plans for risk correction and mitigation.",
+
+        "career.eng.company": "Applied engineering",
+        "career.eng.date": "2018 — 2020",
+        "career.eng.role": "Engineering projects, installations and supervision",
+        "career.eng.desc": "Roles that consolidated her foundation as an electrical engineer, from project design and budgeting to site supervision and technical responsibility.",
+        "career.eng.comando": "Comando Painéis",
+        "career.eng.comandoRole": "Electrical Engineer · Engineering Department Supervisor",
+        "career.eng.nova": "Nova Fase Instalações Elétricas",
+        "career.eng.novaRole": "Electrical Engineer · Engineering Supervisor · Project Assistant · Intern",
+
+        "career.base.company": "Technical foundation",
+        "career.base.date": "2013 — 2018",
+        "career.base.role": "Research & technical support in engineering",
+        "career.base.altoqi": "AltoQi",
+        "career.base.altoqiRole": "Technical Support Department Intern · Electrical engineering and installations",
+        "career.base.cnpq": "CNPq",
+        "career.base.cnpqRole": "Research Fellow · Energy management and distributed solar photovoltaic generation",
+
+        "teaching.label": "04 — Teaching",
+        "teaching.title": "Teaching in energy price formation and energy trading",
+        "teaching.role": "Postgraduate Lecturer · EBPOS",
+        "teaching.p1": "She teaches subjects related to energy price formation and energy trading across different postgraduate programs.",
+        "teaching.p2": "Her classes connect power-sector fundamentals, price formation, energy trading, computational modeling and practical application through an accessible technical approach without sacrificing conceptual depth.",
+        "teaching.t1": "Energy price formation",
+        "teaching.t2": "Energy trading",
+        "teaching.t3": "Energy price-formation models",
+        "teaching.t4": "Practical application to energy markets",
+
+        "tools.label": "05 — Tools",
+        "tools.title": "Models, data and power-sector expertise",
+        "tools.g1": "Power-sector models and tools",
+        "tools.g2": "Programming and data analysis",
+        "tools.g3": "Areas of expertise",
+        "tools.tag.energyPlanning": "Energy Planning",
+        "tools.tag.priceFormation": "Price Formation",
+        "tools.tag.energyTrading": "Energy Trading",
+        "tools.tag.renewables": "Renewable Energy",
+
+        "education.label": "06 — Education",
+        "education.title": "Academic background",
+        "education.bachelor": "Bachelor's Degree",
+        "education.electrical": "Electrical Engineering",
+        "education.pm": "Project Management",
+        "education.energyMBA": "Power Sector and Energy Markets",
+
+        "languages.label": "07 — Languages",
+        "languages.title": "Languages",
+        "languages.pt": "Portuguese",
+        "languages.en": "English",
+
+        "contact.label": "08 — Contact",
+        "contact.title": "Professional contact",
+        "contact.text": "The channels below are available for professional contacts, opportunities, projects, academic activities and discussions related to the power sector.",
+        "contact.linkedin": "LinkedIn ↗",
+        "contact.lattes": "Lattes CV ↗",
+
+        "footer.tagline": "Engineering · Energy · Data"
+      }
+    };
+
+    function setLanguage(lang) {
+      const selected = translations[lang] ? lang : "pt";
+
+      document.documentElement.lang = selected === "pt" ? "pt-BR" : "en";
+      document.title = selected === "pt"
+        ? "Camila Novak | Engenharia, Energia & Dados"
+        : "Camila Novak | Engineering, Energy & Data";
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.getAttribute("data-i18n");
+        const value = translations[selected][key];
+        if (typeof value === "string") {
+          element.textContent = value;
+        }
+      });
+
+      document.querySelectorAll(".lang-btn").forEach((button) => {
+        const isActive = button.dataset.lang === selected;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      const switcher = document.querySelector(".language-switcher");
+      if (switcher) {
+        switcher.setAttribute(
+          "aria-label",
+          selected === "pt" ? "Selecionar idioma" : "Select language"
+        );
+      }
+
+      try {
+        localStorage.setItem("portfolioLanguage", selected);
+      } catch (e) {}
+
+      const url = new URL(window.location.href);
+      if (selected === "en") {
+        url.searchParams.set("lang", "en");
+      } else {
+        url.searchParams.delete("lang");
+      }
+      window.history.replaceState({}, "", url);
+    }
+
+    document.querySelectorAll(".lang-btn").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.lang));
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const langFromUrl = params.get("lang");
+
+    let savedLanguage = null;
+    try {
+      savedLanguage = localStorage.getItem("portfolioLanguage");
+    } catch (e) {}
+
+    const initialLanguage =
+      langFromUrl === "en" || langFromUrl === "pt"
+        ? langFromUrl
+        : (savedLanguage === "en" || savedLanguage === "pt" ? savedLanguage : "pt");
+
+    setLanguage(initialLanguage);
+  </script>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
