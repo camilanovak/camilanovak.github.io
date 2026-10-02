@@ -28,9 +28,9 @@
       --white: #FFFFFF;
       --card: rgba(255,255,255,.84);
       --card-strong: rgba(255,255,255,.94);
-      --card-border: rgba(25, 59, 85, .12);
-      --shadow-soft: 0 10px 28px rgba(25, 59, 85, .06);
-      --shadow-hover: 0 16px 34px rgba(25, 59, 85, .10);
+      --card-border: rgba(25, 59, 85, .30);
+      --shadow-soft: 0 8px 22px rgba(25, 59, 85, .05);
+      --shadow-hover: 0 16px 34px rgba(25, 59, 85, .20);
 
       --max: 1180px;
       --radius: 22px;
@@ -59,6 +59,12 @@
 
     a {
       color: inherit;
+    }
+
+    abbr[title] {
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(25, 59, 85, .45);
+      cursor: help;
     }
 
     img {
@@ -170,7 +176,7 @@
     }
 
     .hero-intro {
-      margin: 24px 0 0;
+      margin: 34px 0 0;
       max-width: 710px;
       color: var(--muted);
       font-size: 17px;
@@ -381,6 +387,41 @@
       color: var(--muted);
       line-height: 1.7;
       text-align: justify;
+    }
+
+
+    .career-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .career-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 14px;
+      border: 1px solid var(--navy);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+
+    .career-nav a:hover {
+      transform: translateY(-2px);
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(25, 59, 85, .20);
+    }
+
+    .timeline-item {
+      scroll-margin-top: 96px;
     }
 
     /* ===== TIMELINE ===== */
@@ -791,7 +832,7 @@
 </head>
 
 <body>
-  <!-- Portfolio Camila Novak | versão 9 | refinamento visual | 02/10/2026 -->
+  <!-- Portfolio Camila Novak | versão 10 | navegação e acessibilidade | 02/10/2026 -->
 
   <header class="site-header">
     <nav class="wrap nav">
@@ -817,14 +858,7 @@
           <p class="kicker">Engineering / Energy / Data</p>
 
           <h1>Camila<br>Novak</h1>
-
-          <p class="hero-role">
-            Planejamento Energético<br>
-            Formação de Preços<br>
-            Mercado de Energia
-          </p>
-
-          <p class="hero-intro">
+<p class="hero-intro">
             A atuação profissional de Camila Novak concentra-se em planejamento energético,
             formação de preços, modelagem computacional e análise de dados aplicados ao setor elétrico,
             com foco na produção de análises que apoiam a tomada de decisão.
@@ -857,7 +891,7 @@
           <div class="about-text">
             <p>
               Camila Novak é engenheira eletricista e atua no setor elétrico com planejamento energético,
-              formação de preços e análise do Sistema Interligado Nacional.
+              formação de preços e análise do Sistema Interligado Nacional (SIN).
             </p>
 
             <p>
@@ -899,8 +933,9 @@
             <small>01 / Planejamento</small>
             <h3>Planejamento Energético</h3>
             <p>
-              Operação do SIN, cenários energéticos, PMO, hidrologia, carga, geração,
-              intercâmbios, armazenamento, despacho térmico e restrições operativas.
+              Acompanhamento das condições do Sistema Interligado Nacional (SIN) e construção de cenários
+              para diferentes horizontes de tempo, considerando disponibilidade de água nos reservatórios,
+              consumo de energia, geração por fonte, intercâmbios entre regiões e restrições operativas.
             </p>
           </article>
 
@@ -908,8 +943,9 @@
             <small>02 / Preços</small>
             <h3>Formação de Preços & Mercado</h3>
             <p>
-              PLD e CMO, horizontes de curto e curtíssimo prazo, comercialização
-              e interpretação dos principais drivers de preço.
+              Análise dos fatores que influenciam o custo de operação do sistema e os preços de energia,
+              incluindo o Custo Marginal de Operação (CMO) e o Preço de Liquidação das Diferenças (PLD),
+              com suporte a decisões relacionadas ao mercado e à comercialização de energia.
             </p>
           </article>
 
@@ -917,8 +953,9 @@
             <small>03 / Modelos</small>
             <h3>Modelagem Computacional</h3>
             <p>
-              Execução, análise e interpretação de resultados de NEWAVE, DECOMP,
-              DESSEM e outros modelos aplicados ao setor elétrico.
+              Utilização de modelos computacionais do setor elétrico, como NEWAVE, DECOMP e DESSEM,
+              para simular cenários futuros, avaliar condições de operação e interpretar seus impactos
+              sobre o planejamento e a formação de preços.
             </p>
           </article>
 
@@ -926,8 +963,9 @@
             <small>04 / Dados</small>
             <h3>Dados & Automação</h3>
             <p>
-              Python, R, SQL, dashboards, estruturação de dados e automação de rotinas
-              para tornar estudos técnicos mais eficientes e reprodutíveis.
+              Uso de programação e ferramentas de análise de dados para organizar grandes volumes de
+              informação, automatizar rotinas repetitivas e produzir análises e painéis que apoiam a
+              tomada de decisão. Entre as principais ferramentas estão Python, R, SQL e Power BI.
             </p>
           </article>
         </div>
@@ -945,12 +983,21 @@
               A trajetória reúne experiências em engenharia aplicada, operação, tecnologia, comercialização
               e planejamento energético, preservando a base técnica que sustenta a atuação atual.
             </p>
+
+            <nav class="career-nav" aria-label="Atalhos para experiências profissionais">
+              <a href="#exp-ctg">CTG Brasil</a>
+              <a href="#exp-safira">Grupo Safira</a>
+              <a href="#exp-norus">Norus</a>
+              <a href="#exp-cushman">Cushman & Wakefield</a>
+              <a href="#exp-engenharia">Engenharia aplicada</a>
+              <a href="#exp-base">Base técnica</a>
+            </nav>
           </div>
         </div>
 
         <div class="timeline">
 
-          <article class="timeline-item">
+          <article class="timeline-item" id="exp-ctg">
             <div class="time-meta">
               <strong>CTG Brasil</strong>
               nov/2024 — atual
@@ -962,20 +1009,20 @@
 
               <p>
                 Atuação em planejamento energético nos horizontes de curtíssimo, curto e longo prazo,
-                combinando acompanhamento conjuntural do SIN, formação de preços e estudos prospectivos
-                sobre a evolução do setor elétrico.
+                combinando acompanhamento conjuntural do Sistema Interligado Nacional (SIN),
+                formação de preços e estudos prospectivos sobre a evolução do setor elétrico.
               </p>
 
               <ul>
-                <li>Acompanhamento de PMO, revisões semanais, hidrologia, carga, geração, armazenamento, despacho térmico, intercâmbios e restrições.</li>
-                <li>Desenvolvimento de cenários e sensibilidades de PLD/CMO.</li>
+                <li>Acompanhamento do Programa Mensal da Operação Energética (PMO), revisões semanais, hidrologia, carga, geração, armazenamento, despacho térmico, intercâmbios e restrições.</li>
+                <li>Desenvolvimento de cenários e sensibilidades de Preço de Liquidação das Diferenças (PLD) e Custo Marginal de Operação (CMO).</li>
                 <li>Análise e interpretação de resultados de NEWAVE, DECOMP e DESSEM.</li>
                 <li>Estruturação de dados, relatórios, dashboards e automações para suporte à decisão.</li>
               </ul>
             </div>
           </article>
 
-          <article class="timeline-item">
+          <article class="timeline-item" id="exp-safira">
             <div class="time-meta">
               <strong>Grupo Safira</strong>
               mai/2024 — nov/2024
@@ -991,14 +1038,14 @@
               </p>
 
               <ul>
-                <li>Acompanhamento de PLD no curto e curtíssimo prazo, PMO e revisões semanais.</li>
+                <li>Acompanhamento de <abbr title="Preço de Liquidação das Diferenças">PLD</abbr> no curto e curtíssimo prazo, <abbr title="Programa Mensal da Operação Energética">PMO</abbr> e revisões semanais.</li>
                 <li>Monitoramento de hidrologia, carga, geração, despacho térmico e meteorologia.</li>
                 <li>Estruturação de indicadores, dashboards e automações para as rotinas da área.</li>
               </ul>
             </div>
           </article>
 
-          <article class="timeline-item">
+          <article class="timeline-item" id="exp-norus">
             <div class="time-meta">
               <strong>Norus</strong>
               out/2021 — mai/2024
@@ -1022,7 +1069,7 @@
             </div>
           </article>
 
-          <article class="timeline-item">
+          <article class="timeline-item" id="exp-cushman">
             <div class="time-meta">
               <strong>Cushman & Wakefield</strong>
               2020 — 2021
@@ -1040,7 +1087,7 @@
             </div>
           </article>
 
-          <article class="timeline-item">
+          <article class="timeline-item" id="exp-engenharia">
             <div class="time-meta">
               <strong>Engenharia aplicada</strong>
               2018 — 2020
@@ -1068,7 +1115,7 @@
             </div>
           </article>
 
-          <article class="timeline-item">
+          <article class="timeline-item" id="exp-base">
             <div class="time-meta">
               <strong>Base técnica</strong>
               2013 — 2018
@@ -1133,15 +1180,15 @@
     <section class="divider">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-label">05 — Toolkit</div>
+          <div class="section-label">05 — Ferramentas</div>
           <div>
-            <h2 class="section-title">Modelos, dados e conhecimento de domínio</h2>
+            <h2 class="section-title">Modelos, dados e conhecimentos do setor elétrico</h2>
           </div>
         </div>
 
         <div class="tool-groups">
           <div class="tool-group">
-            <h3>Modelos do setor elétrico</h3>
+            <h3>Modelos e ferramentas do setor elétrico</h3>
             <div class="tags">
               <span class="tag">NEWAVE</span>
               <span class="tag">DECOMP</span>
@@ -1154,7 +1201,7 @@
           </div>
 
           <div class="tool-group">
-            <h3>Programação & dados</h3>
+            <h3>Programação e análise de dados</h3>
             <div class="tags">
               <span class="tag">Python</span>
               <span class="tag">R</span>
@@ -1164,7 +1211,7 @@
           </div>
 
           <div class="tool-group">
-            <h3>Conhecimento de domínio</h3>
+            <h3>Temas de atuação</h3>
             <div class="tags">
               <span class="tag">Planejamento Energético</span>
               <span class="tag">Formação de Preços</span>
