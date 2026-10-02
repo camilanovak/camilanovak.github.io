@@ -1352,11 +1352,111 @@
       }
     }
 
+
+    .mobile-section-nav-wrap {
+      display: none;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 80;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--navy);
+      border-radius: 50%;
+      background: rgba(25, 59, 85, .94);
+      color: var(--white);
+      font-size: 20px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      box-shadow: 0 10px 26px rgba(25, 59, 85, .20);
+      transition: opacity .2s ease, visibility .2s ease, transform .2s ease, background .2s ease;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--blue);
+    }
+
+    .back-to-top:focus-visible {
+      outline: 3px solid rgba(82, 117, 141, .35);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-section-nav-wrap {
+        display: block;
+        border-top: 1px solid rgba(25, 59, 85, .07);
+        background: rgba(232, 239, 243, .95);
+      }
+
+      .mobile-section-nav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        padding-top: 7px;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .mobile-section-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .mobile-section-nav a {
+        flex: 0 0 auto;
+        padding: 7px 11px;
+        border-radius: 999px;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 1;
+        white-space: nowrap;
+        transition: background .2s ease, color .2s ease;
+      }
+
+      .mobile-section-nav a.active {
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      html {
+        scroll-padding-top: 108px;
+      }
+
+      .timeline-item {
+        scroll-margin-top: 112px;
+      }
+
+      .back-to-top {
+        right: 14px;
+        bottom: 14px;
+        width: 42px;
+        height: 42px;
+        font-size: 19px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
-  <!-- Portfolio Camila Novak | versão 15 | cargo visível no mobile | 02/10/2026 -->
+  <!-- Portfolio Camila Novak | versão 16 | navegação persistente + topo | 02/10/2026 -->
 
   <header class="site-header">
     <nav class="wrap nav">
@@ -1378,6 +1478,18 @@
         </div>
       </div>
     </nav>
+  
+    <div class="mobile-section-nav-wrap">
+      <nav class="mobile-section-nav wrap" aria-label="Navegação pelas seções">
+        <a href="#sobre" data-i18n="nav.about">Sobre</a>
+        <a href="#atuacao" data-i18n="nav.work">Atuação</a>
+        <a href="#trajetoria" data-i18n="nav.career">Trajetória</a>
+        <a href="#docencia" data-i18n="nav.teaching">Docência</a>
+        <a href="#formacao" data-i18n="nav.education">Formação</a>
+        <a href="#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+    </div>
+
   </header>
 
   <main id="top">
@@ -1818,6 +1930,11 @@
 
   </main>
 
+
+  <button id="backToTop" class="back-to-top" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">
+    ↑
+  </button>
+
   <footer class="wrap">
     <span>© <span id="year"></span> Camila Novak</span>
     <span data-i18n="footer.tagline">Engenharia · Energia · Dados</span>
@@ -2141,6 +2258,10 @@
         localStorage.setItem("portfolioLanguage", selected);
       } catch (e) {}
 
+      if (typeof updateBackToTopLanguage === "function") {
+        updateBackToTopLanguage(selected);
+      }
+
       const url = new URL(window.location.href);
       if (selected === "en") {
         url.searchParams.set("lang", "en");
@@ -2168,6 +2289,76 @@
         : (savedLanguage === "en" || savedLanguage === "pt" ? savedLanguage : "pt");
 
     setLanguage(initialLanguage);
+  </script>
+
+
+  <script>
+    const backToTop = document.getElementById("backToTop");
+
+    function updateBackToTop() {
+      if (!backToTop) return;
+      backToTop.classList.toggle("show", window.scrollY > 520);
+    }
+
+    if (backToTop) {
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
+    updateBackToTop();
+
+    const mobileSectionLinks = Array.from(
+      document.querySelectorAll(".mobile-section-nav a")
+    );
+
+    const sectionTargets = mobileSectionLinks
+      .map(link => {
+        const id = link.getAttribute("href");
+        return id ? document.querySelector(id) : null;
+      })
+      .filter(Boolean);
+
+    if ("IntersectionObserver" in window && sectionTargets.length) {
+      const sectionObserver = new IntersectionObserver(
+        entries => {
+          const visible = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (!visible) return;
+
+          const activeId = "#" + visible.target.id;
+
+          mobileSectionLinks.forEach(link => {
+            const isActive = link.getAttribute("href") === activeId;
+            link.classList.toggle("active", isActive);
+
+            if (isActive) {
+              link.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "center"
+              });
+            }
+          });
+        },
+        {
+          rootMargin: "-32% 0px -58% 0px",
+          threshold: [0.05, 0.2, 0.5]
+        }
+      );
+
+      sectionTargets.forEach(section => sectionObserver.observe(section));
+    }
+
+    function updateBackToTopLanguage(lang) {
+      if (!backToTop) return;
+      const label = lang === "en" ? "Back to top" : "Voltar ao topo";
+      backToTop.setAttribute("aria-label", label);
+      backToTop.setAttribute("title", label);
+    }
   </script>
 
   <script>
