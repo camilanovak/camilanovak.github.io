@@ -1,213 +1,1173 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camila Novak</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f2e8e1;
-            color: #7a695d;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(122, 105, 93, 0.2);
-            overflow: hidden;
-            padding-bottom: 20px;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #7a695d 0%, #ae9c8f 100%);
-            color: #ffffff;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        
-        .profile-wrapper {
-            position: relative;
-            min-height: 250px;
-            background: linear-gradient(180deg, #ae9c8f 0%, #e5d2c4 60%, #ffffff 100%);
-            padding-top: 0;
-            overflow: hidden;
-        }
-        
-        .profile-wrapper:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23f2e8e1' fill-opacity='0.4'%3E%3Cpath d='M11 18v-5l2-3V7l-2-3V2h10v3l-2 2v3l2 2v5H11zm4-11.5l2-1.5h-4l2 1.5zm0 7l2-1.5h-4l2 1.5zM35 7v10l-2 2v-4l-2-2V7l-2-2v10l-2 2v-4l-2-2V7l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2v-4l2-2v4l2 2V7l-2-2zm0 0l2 2h-4l2-2zm0 14l2 2h-4l2-2zM19 17v-4l2-2V7l-2-2v10l-2 2v-4l-2-2V7l-2-2v4l-2 2v4l2 2V7l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM53 7v10l-2 2v-4l-2-2V7l-2-2v10l-2 2v-4l-2-2V7l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2v-4l2-2v4l2 2V7l-2-2zm0 0l2 2h-4l2-2zm0 14l2 2h-4l2-2zM67 7v10l-2 2v-4l-2-2V7l-2-2v10l-2 2v-4l-2-2V7l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2v-4l2-2v4l2 2V7l-2-2zm0 0l2 2h-4l2-2zm0 14l2 2h-4l2-2zM85 17v-4l2-2V7l-2-2v10l-2 2v-4l-2-2V7l-2-2v4l-2 2v4l2 2V7l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM11 67v-4l2-2v-4l-2-2v10l-2 2v-4l-2-2v-4l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM29 67v-4l2-2v-4l-2-2v10l-2 2v-4l-2-2v-4l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM47 67v-4l2-2v-4l-2-2v10l-2 2v-4l-2-2v-4l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM65 67v-4l2-2v-4l-2-2v10l-2 2v-4l-2-2v-4l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM83 67v-4l2-2v-4l-2-2v10l-2 2v-4l-2-2v-4l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM11 85v-4l2-2v-4l-2-2v10l-2 2v-4l-2-2v-4l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM29 85v-4l2-2v-4l-2-2v10l-2 2v-4l-2-2v-4l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM47 85v-4l2-2v-4l-2-2v10l-2 2v-4l-2-2v-4l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM65 85v-4l2-2v-4l-2-2v10l-2 2v-4l-2-2v-4l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2zM83 85v-4l2-2v-4l-2-2v10l-2 2v-4l-2-2v-4l-2-2v4l-2 2v4l2 2v-4l2-2v10l2 2v-4l2-2v4l2 2zm0 0l2 2h-4l2-2zm0-10l2-2h-4l2 2z'/%3E%3C/g%3E%3C/svg%3E");
-        }
-        
-        .profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: -50px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid #ffffff;
-            object-fit: cover;
-            background-color: #e5d2c4;
-        }
-        
-        .name {
-            margin-top: 15px;
-            font-size: 28px;
-            font-weight: 600;
-            color: #7a695d;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
-        }
-        
-        .title {
-            font-size: 18px;
-            color: #7a695d;
-            margin-bottom: 25px;
-            text-align: center;
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
-        }
-        
-        .content {
-            padding: 20px;
-        }
-        
-        .section {
-            margin-bottom: 20px;
-        }
-        
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #7a695d;
-            border-bottom: 1px solid #e5d2c4;
-            padding-bottom: 5px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ae9c8f;
-        }
-        
-        .contact-link {
-            color: #7a695d;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-link:hover {
-            color: #ae9c8f;
-            text-decoration: underline;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 14px;
-            color: #ae9c8f;
-            padding: 10px;
-            background-color: #f2e8e1;
-            margin-bottom: 0;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                margin: 0;
-                border-radius: 0;
-            }
-            
-            .profile-img {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .name {
-                font-size: 24px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio profissional de Camila Novak — Engenheira Eletricista com atuação em planejamento energético, formação de preços, mercado de energia, modelagem computacional e dados." />
+  <meta name="theme-color" content="#193B55" />
+
+  <title>Camila Novak | Engenharia, Energia & Dados</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #193B55;
+      --blue: #52758D;
+      --blue-soft: #DCE8EF;
+      --ink: #39444D;
+      --muted: #68757E;
+      --line: #D9E1E6;
+      --bg: #FCFCFB;
+      --surface: #F5F7F8;
+      --white: #FFFFFF;
+
+      --max: 1180px;
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    /* ===== NAV ===== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(252, 252, 251, 0.92);
+      border-bottom: 1px solid rgba(217, 225, 230, 0.8);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 15px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    /* ===== HERO ===== */
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap: 76px;
+      align-items: center;
+      padding: 76px 0 92px;
+    }
+
+    .kicker {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 0 0 24px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(58px, 8vw, 108px);
+      line-height: .92;
+      letter-spacing: -.055em;
+      font-weight: 700;
+    }
+
+    .hero-role {
+      margin: 30px 0 0;
+      color: var(--ink);
+      font-size: clamp(21px, 2.4vw, 31px);
+      line-height: 1.35;
+      font-weight: 500;
+      max-width: 760px;
+    }
+
+    .hero-intro {
+      margin: 24px 0 0;
+      max-width: 710px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.72;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid var(--navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    .btn-secondary {
+      color: var(--navy);
+      background: transparent;
+    }
+
+    .hero-photo {
+      position: relative;
+      justify-self: end;
+      width: min(100%, 430px);
+      aspect-ratio: 4 / 5.2;
+      border-radius: 26px;
+      overflow: hidden;
+      background: var(--blue-soft);
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(25, 59, 85, .12);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    /* ===== SECTION BASE ===== */
+
+    section {
+      padding: 96px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 32px;
+      margin-bottom: 44px;
+    }
+
+    .section-label {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding-top: 8px;
+      white-space: nowrap;
+    }
+
+    .section-title {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(34px, 4.6vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+      font-weight: 600;
+      max-width: 860px;
+    }
+
+    .section-copy {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 820px;
+    }
+
+    .divider {
+      border-top: 1px solid var(--line);
+    }
+
+    /* ===== SOBRE ===== */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--ink);
+      max-width: 820px;
+    }
+
+    .about-text p {
+      margin: 0 0 18px;
+    }
+
+    .about-aside {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .about-aside .mini-label {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--blue);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+
+    .about-aside p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ===== PILARES ===== */
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .pillar {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px;
+      background: var(--white);
+    }
+
+    .pillar small {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--blue);
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+
+    .pillar h3 {
+      margin: 24px 0 10px;
+      color: var(--navy);
+      font-size: 23px;
+      line-height: 1.25;
+    }
+
+    .pillar p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ===== TIMELINE ===== */
+
+    .timeline {
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 44px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .time-meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .time-meta strong {
+      display: block;
+      color: var(--navy);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .time-content h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .time-content .company {
+      margin-top: 6px;
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    .time-content p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      max-width: 860px;
+    }
+
+    .time-content ul {
+      margin: 16px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .time-content li + li {
+      margin-top: 6px;
+    }
+
+    .compact-experience {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .compact-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .compact-card strong {
+      color: var(--navy);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .compact-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ===== DOCÊNCIA ===== */
+
+    .teaching {
+      background: var(--blue-soft);
+    }
+
+    .teaching-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      padding: 38px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(25,59,85,.10);
+      border-radius: 24px;
+    }
+
+    .teaching-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 28px;
+      line-height: 1.25;
+    }
+
+    .teaching-card p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .teaching-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .teaching-topic {
+      padding: 16px 18px;
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid rgba(25,59,85,.08);
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    /* ===== TOOLKIT ===== */
+
+    .tool-groups {
+      display: grid;
+      gap: 28px;
+    }
+
+    .tool-group {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 30px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tool-group:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .tool-group h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      color: var(--ink);
+    }
+
+    /* ===== FORMAÇÃO ===== */
+
+    .education {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .edu {
+      min-height: 210px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--white);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .edu .degree {
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--blue);
+      font-size: 11px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .edu h3 {
+      margin: 24px 0 8px;
+      color: var(--navy);
+      font-size: 21px;
+      line-height: 1.28;
+    }
+
+    .edu p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .edu .year {
+      margin-top: auto;
+      padding-top: 22px;
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--blue);
+      font-size: 12px;
+    }
+
+    /* ===== IDIOMAS ===== */
+
+    .language-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .language {
+      min-width: 160px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--white);
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    /* ===== CONTATO ===== */
+
+    .contact-wrap {
+      padding: 0 0 72px;
+    }
+
+    .contact {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 28px;
+      padding: 54px;
+    }
+
+    .contact .section-label {
+      color: #B8D0DF;
+      padding: 0;
+    }
+
+    .contact h2 {
+      margin: 14px 0 0;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      max-width: 760px;
+    }
+
+    .contact p {
+      margin: 18px 0 0;
+      color: rgba(255,255,255,.72);
+      max-width: 680px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .contact-links a:hover {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 0 32px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ===== RESPONSIVO ===== */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 64px;
+      }
+
+      .hero-photo {
+        justify-self: start;
+        width: min(100%, 480px);
+      }
+
+      .section-head,
+      .about-grid,
+      .timeline-item,
+      .teaching-card,
+      .tool-group {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        gap: 10px;
+      }
+
+      .pillars,
+      .education {
+        grid-template-columns: 1fr;
+      }
+
+      .compact-experience {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding: 38px 28px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .hero {
+        gap: 42px;
+        padding: 56px 0 68px;
+      }
+
+      .hero h1 {
+        font-size: clamp(54px, 19vw, 78px);
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header"></div>
-        
-        <div class="profile">
-            <img src="Image.png" alt="Foto de Camila Novak" class="profile-img">
-            <h1 class="name">Camila Novak</h1>
-            <p class="title">Engenheira Eletricista | Analista de Planejamento Energético</p>
+
+  <header class="site-header">
+    <nav class="wrap nav">
+      <a class="brand" href="#top">CAMILA NOVAK</a>
+
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#atuacao">Atuação</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#docencia">Docência</a>
+        <a href="#formacao">Formação</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <div class="wrap">
+      <section class="hero">
+        <div>
+          <p class="kicker">Engineering / Energy / Data</p>
+
+          <h1>Camila<br>Novak.</h1>
+
+          <p class="hero-role">
+            Engenheira Eletricista · Planejamento Energético · Formação de Preços · Mercado de Energia
+          </p>
+
+          <p class="hero-intro">
+            Atuo na interseção entre engenharia, planejamento energético, modelagem e dados,
+            transformando informações complexas do setor elétrico em análises que apoiam decisões.
+          </p>
+
+          <div class="hero-actions">
+            <!-- Substitua o link abaixo pelo seu LinkedIn -->
+            <a class="btn btn-primary" href="#contato">Entre em contato</a>
+            <a class="btn btn-secondary" href="#trajetoria">Ver trajetória</a>
+          </div>
         </div>
-        
-        <div class="content">
-            <div class="section">
-                <h2 class="section-title">Sobre mim</h2>
-                <p>Engenheira Eletricista formada pelo Instituto Federal de Santa Catarina, com especializações em Gestão de Projetos pela Universidade Estácio de Sá e em Setor Elétrico e Mercados de Energia pela Universidade Católica de Petrópolis.</p>
-                <p>Atuei anteriormente com projetos e instalações elétricas, manutenção e gestão de facilities, o que me proporcionou uma base sólida em processos técnicos e operacionais do setor elétrico.</p>
-                <p>Nos últimos anos, tenho me dedicado às áreas de formação de preços de energia elétrica, comercialização e planejamento energético, com foco em análises que apoiam a tomada de decisão estratégica no mercado de energia.</p>
-                <p>Minha trajetória é marcada por uma visão integrada do setor elétrico, unindo conhecimento técnico, regulatório e comercial para atuar de forma eficaz em um mercado em constante transformação.</p>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title">Contato</h2>
-                
-                <div class="contact-item">
-                    <div class="icon">📧</div>
-                    <a href="mailto:camila.novak@outlook.com" class="contact-link">camila.novak@outlook.com</a>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="icon">📱</div>
-                    <a href="https://wa.me/5548984172106" target="_blank" class="contact-link">(48) 98417-2106</a>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="icon">💼</div>
-                    <a href="https://linkedin.com/in/camila-novak/" target="_blank" class="contact-link">LinkedIn</a>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="icon">🎓</div>
-                    <a href="http://lattes.cnpq.br/1461786919599821" target="_blank" class="contact-link">Currículo Lattes</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer">
-            Atualizado em maio de 2025
-        </div>
+
+        <figure class="hero-photo" aria-label="Camila Novak em visita técnica a uma usina hidrelétrica">
+          <img src="camila-novak.jpg" alt="Camila Novak em visita técnica a uma usina hidrelétrica">
+        </figure>
+      </section>
     </div>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="divider">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">01 — Sobre</div>
+          <div>
+            <h2 class="section-title">Engenharia para entender sistemas. Dados para apoiar decisões.</h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Sou engenheira eletricista e atuo no setor elétrico com planejamento energético,
+              formação de preços e análise do Sistema Interligado Nacional.
+            </p>
+
+            <p>
+              Minha trajetória passou por diferentes perspectivas do setor, da engenharia aplicada
+              e operação ao desenvolvimento de soluções para execução e análise dos modelos
+              NEWAVE, DECOMP e DESSEM, chegando ao planejamento energético e à análise de mercado.
+            </p>
+
+            <p>
+              Também utilizo programação e análise de dados para estruturar informações,
+              automatizar processos e transformar análises técnicas em resultados mais claros e aplicáveis.
+            </p>
+          </div>
+
+          <aside class="about-aside">
+            <div class="mini-label">Também na sala de aula</div>
+            <p>
+              Sou professora em cursos de pós-graduação, ministrando disciplinas relacionadas
+              à formação de preços e comercialização de energia.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATUAÇÃO -->
+    <section id="atuacao" class="divider">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">02 — Atuação</div>
+          <div>
+            <h2 class="section-title">Quatro pilares que concentram meu trabalho hoje.</h2>
+          </div>
+        </div>
+
+        <div class="pillars">
+          <article class="pillar">
+            <small>01 / Planejamento</small>
+            <h3>Planejamento Energético</h3>
+            <p>
+              Operação do SIN, cenários energéticos, PMO, hidrologia, carga, geração,
+              intercâmbios, armazenamento, despacho térmico e restrições operativas.
+            </p>
+          </article>
+
+          <article class="pillar">
+            <small>02 / Preços</small>
+            <h3>Formação de Preços & Mercado</h3>
+            <p>
+              PLD e CMO, horizontes de curto e curtíssimo prazo, comercialização
+              e interpretação dos principais drivers de preço.
+            </p>
+          </article>
+
+          <article class="pillar">
+            <small>03 / Modelos</small>
+            <h3>Modelagem Computacional</h3>
+            <p>
+              Execução, análise e interpretação de resultados de NEWAVE, DECOMP,
+              DESSEM e outros modelos aplicados ao setor elétrico.
+            </p>
+          </article>
+
+          <article class="pillar">
+            <small>04 / Dados</small>
+            <h3>Dados & Automação</h3>
+            <p>
+              Python, R, SQL, dashboards, estruturação de dados e automação de rotinas
+              para tornar estudos técnicos mais eficientes e reprodutíveis.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAJETÓRIA -->
+    <section id="trajetoria" class="divider">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">03 — Trajetória</div>
+          <div>
+            <h2 class="section-title">Uma carreira construída entre engenharia, tecnologia, mercado e operação.</h2>
+            <p class="section-copy">
+              A linha abaixo privilegia as experiências que melhor explicam minha atuação atual,
+              mantendo a base técnica que sustentou essa evolução.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline">
+
+          <article class="timeline-item">
+            <div class="time-meta">
+              <strong>CTG Brasil</strong>
+              nov/2024 — atual
+            </div>
+
+            <div class="time-content">
+              <h3>Senior Energy Planning Analyst</h3>
+              <div class="company">Planejamento Energético</div>
+
+              <p>
+                Atuação em planejamento energético nos horizontes de curtíssimo, curto e longo prazo,
+                combinando acompanhamento conjuntural do SIN, formação de preços e estudos prospectivos
+                sobre a evolução do setor elétrico.
+              </p>
+
+              <ul>
+                <li>Acompanhamento de PMO, revisões semanais, hidrologia, carga, geração, armazenamento, despacho térmico, intercâmbios e restrições.</li>
+                <li>Desenvolvimento de cenários e sensibilidades de PLD/CMO.</li>
+                <li>Análise e interpretação de resultados de NEWAVE, DECOMP e DESSEM.</li>
+                <li>Estruturação de dados, relatórios, dashboards e automações para suporte à decisão.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time-meta">
+              <strong>Grupo Safira</strong>
+              mai/2024 — nov/2024
+            </div>
+
+            <div class="time-content">
+              <h3>Analista de Middle Office Sênior</h3>
+              <div class="company">Formação de Preços & Comercialização</div>
+
+              <p>
+                Atuação em formação de preços, projeções de PLD e acompanhamento de variáveis
+                energéticas para suporte à comercialização de energia.
+              </p>
+
+              <ul>
+                <li>Acompanhamento de PLD no curto e curtíssimo prazo, PMO e revisões semanais.</li>
+                <li>Monitoramento de hidrologia, carga, geração, despacho térmico e meteorologia.</li>
+                <li>Estruturação de indicadores, dashboards e automações para as rotinas da área.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time-meta">
+              <strong>Norus</strong>
+              out/2021 — mai/2024
+            </div>
+
+            <div class="time-content">
+              <h3>Analista de Negócios</h3>
+              <div class="company">Setor Elétrico · Tecnologia · Produto</div>
+
+              <p>
+                Atuação na interface entre setor elétrico, tecnologia e produto, contribuindo
+                para o desenvolvimento contínuo do Prospec, solução voltada ao gerenciamento,
+                execução e análise dos modelos NEWAVE, DECOMP, DESSEM e GEVAZP.
+              </p>
+
+              <ul>
+                <li>Levantamento e tradução de necessidades de usuários em requisitos de produto.</li>
+                <li>Execução, análise e suporte técnico relacionado aos modelos computacionais do setor elétrico.</li>
+                <li>Interface entre usuários, equipe técnica e desenvolvimento para evolução da solução.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time-meta">
+              <strong>Cushman & Wakefield</strong>
+              2020 — 2021
+            </div>
+
+            <div class="time-content">
+              <h3>Dirigente de Operação</h3>
+              <div class="company">ONS Florianópolis · Schneider Electric Blumenau</div>
+
+              <p>
+                Atuação em operação predial e gestão de facilities, com responsabilidade sobre
+                manutenção elétrica, infraestrutura, terceiros, contratos, segurança patrimonial,
+                compras e planos de ação para correção e mitigação de riscos.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time-meta">
+              <strong>Engenharia aplicada</strong>
+              2018 — 2020
+            </div>
+
+            <div class="time-content">
+              <h3>Projetos, instalações e supervisão de engenharia</h3>
+
+              <p>
+                Experiências que consolidaram minha base como engenheira eletricista,
+                da elaboração de projetos e orçamentos à supervisão de obras e responsabilidade técnica.
+              </p>
+
+              <div class="compact-experience">
+                <div class="compact-card">
+                  <strong>Comando Painéis</strong>
+                  <span>Engenheira Eletricista · Supervisora do Setor de Engenharia</span>
+                </div>
+
+                <div class="compact-card">
+                  <strong>Nova Fase Instalações Elétricas</strong>
+                  <span>Engenheira Eletricista · Supervisora de Engenharia · Assistente de Projetos · Estagiária</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time-meta">
+              <strong>Base técnica</strong>
+              2013 — 2018
+            </div>
+
+            <div class="time-content">
+              <h3>Pesquisa & suporte técnico em engenharia</h3>
+
+              <div class="compact-experience">
+                <div class="compact-card">
+                  <strong>AltoQi</strong>
+                  <span>Estagiária no Departamento de Suporte Técnico · Engenharia elétrica e instalações</span>
+                </div>
+
+                <div class="compact-card">
+                  <strong>CNPq</strong>
+                  <span>Bolsista · Pesquisa em gestão energética e microgeração solar fotovoltaica</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCÊNCIA -->
+    <section id="docencia" class="teaching">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">04 — Docência</div>
+          <div>
+            <h2 class="section-title">Conhecimento técnico também precisa ser comunicável.</h2>
+          </div>
+        </div>
+
+        <div class="teaching-card">
+          <div>
+            <h3>Professora em cursos de pós-graduação · EBPOS</h3>
+            <p>
+              Ministro disciplinas relacionadas à formação de preços e comercialização de energia
+              em diferentes cursos de pós-graduação.
+            </p>
+            <p>
+              O foco das aulas é conectar fundamentos do setor elétrico, funcionamento dos modelos,
+              mercado e aplicação prática, tornando temas tecnicamente complexos mais acessíveis
+              sem perder profundidade.
+            </p>
+          </div>
+
+          <div class="teaching-list">
+            <div class="teaching-topic">Formação de preços de energia</div>
+            <div class="teaching-topic">Comercialização de energia</div>
+            <div class="teaching-topic">Modelos do setor elétrico</div>
+            <div class="teaching-topic">Aplicação prática ao mercado de energia</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FERRAMENTAS -->
+    <section class="divider">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">05 — Toolkit</div>
+          <div>
+            <h2 class="section-title">Modelos, dados e conhecimento de domínio.</h2>
+          </div>
+        </div>
+
+        <div class="tool-groups">
+          <div class="tool-group">
+            <h3>Modelos do setor elétrico</h3>
+            <div class="tags">
+              <span class="tag">NEWAVE</span>
+              <span class="tag">DECOMP</span>
+              <span class="tag">DESSEM</span>
+              <span class="tag">GEVAZP</span>
+            </div>
+          </div>
+
+          <div class="tool-group">
+            <h3>Programação & dados</h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">R</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Power BI</span>
+            </div>
+          </div>
+
+          <div class="tool-group">
+            <h3>Conhecimento de domínio</h3>
+            <div class="tags">
+              <span class="tag">Planejamento Energético</span>
+              <span class="tag">Formação de Preços</span>
+              <span class="tag">Comercialização de Energia</span>
+              <span class="tag">SIN</span>
+              <span class="tag">Energias Renováveis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section id="formacao" class="divider">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">06 — Formação</div>
+          <div>
+            <h2 class="section-title">Formação acadêmica.</h2>
+          </div>
+        </div>
+
+        <div class="education">
+          <article class="edu">
+            <div class="degree">Executive MBA</div>
+            <h3>Setor Elétrico e Mercado de Energia</h3>
+            <p>Universidade Católica de Petrópolis — UCP</p>
+            <div class="year">2023 — 2025</div>
+          </article>
+
+          <article class="edu">
+            <div class="degree">MBA</div>
+            <h3>Gestão de Projetos</h3>
+            <p>Estácio</p>
+            <div class="year">2020 — 2022</div>
+          </article>
+
+          <article class="edu">
+            <div class="degree">Graduação</div>
+            <h3>Engenharia Elétrica</h3>
+            <p>Instituto Federal de Santa Catarina — IFSC</p>
+            <div class="year">2013 — 2018</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDIOMAS -->
+    <section class="divider">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">07 — Idiomas</div>
+          <div>
+            <h2 class="section-title">Idiomas.</h2>
+          </div>
+        </div>
+
+        <div class="language-row">
+          <div class="language">Português</div>
+          <div class="language">English</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <div id="contato" class="wrap contact-wrap">
+      <section class="contact">
+        <div class="section-label">08 — Contato</div>
+
+        <h2>Vamos conversar sobre energia, engenharia e dados?</h2>
+
+        <p>
+          Para contatos profissionais, oportunidades, projetos, aulas ou trocas sobre o setor elétrico,
+          você pode falar comigo pelos canais abaixo.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:camila.novak@outlook.com">E-mail</a>
+
+          <a href="https://linkedin.com/in/camila-novak/" target="_blank" rel="noopener">LinkedIn ↗</a>
+
+          <!-- Opcional: mantenha apenas se quiser divulgar o GitHub nesta versão -->
+          <!-- <a href="https://github.com/camilanovak" target="_blank" rel="noopener">GitHub ↗</a> -->
+
+          <a href="http://lattes.cnpq.br/1461786919599821" target="_blank" rel="noopener">Lattes ↗</a>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="wrap">
+    <span>© <span id="year"></span> Camila Novak</span>
+    <span>Engenharia · Energia · Dados</span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
